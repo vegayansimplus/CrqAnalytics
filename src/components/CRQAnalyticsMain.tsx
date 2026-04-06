@@ -605,22 +605,22 @@ const FILTER_CONFIGS = [
   {
     key: "function",
     label: "Function",
-    opts: ["All Functions", "Network", "IT", "Operations"],
+    opts: ["All Functions", "IP Core", "Optics", "Service Optimisation", "IP Access_CCB", "Service Optimisation ", "Packet"],
   },
   {
     key: "domain",
     label: "Domain",
-    opts: ["All Domains", "Core Network", "Access", "Transport"],
+    opts: ["All Domains", "BRAS", "BRAS_IP", "CEN","MPLS"],
   },
   {
     key: "subDomain",
     label: "Sub-Domain",
-    opts: ["All Sub-Domains", "Transmission", "Aggregation"],
+    opts: ["All Sub-Domains", "MPLS-Core", "CEN-Core","Packet Change_CCB - Packet ECI_CCB","BRAS Core_CCB"],
   },
   {
     key: "circle",
     label: "Circle",
-    opts: ["All Circles", "North", "South", "East", "West"],
+    opts: ["All Circles", "Gujrat", "Bihar", "Kerala", "Maharashtra"],
   },
 ] as const;
 
