@@ -66,11 +66,22 @@ const slaColor = (s: number) =>
       : { bar: "#ef4444", text: "#f87171" };
 
 const DOMAIN_PALETTE = [
-  "#818cf8", "#6366f1", "#3b82f6", "#22d3ee",
-  "#4ade80", "#facc15", "#94a3b8",
+  "#818cf8",
+  "#6366f1",
+  "#3b82f6",
+  "#22d3ee",
+  "#4ade80",
+  "#facc15",
+  "#94a3b8",
 ] as const;
 
-const BOTTLENECK_PALETTE = ["#ef4444", "#f97316", "#f59e0b", "#3b82f6", "#22c55e"] as const;
+const BOTTLENECK_PALETTE = [
+  "#ef4444",
+  "#f97316",
+  "#f59e0b",
+  "#3b82f6",
+  "#22c55e",
+] as const;
 
 // ─── Style factories ──────────────────────────────────────────────────────────
 const panelSx = (isDark: boolean): SxProps<Theme> => ({
@@ -203,9 +214,7 @@ const KPICard: React.FC<KPICardProps> = ({
       aria-expanded={cfg.expandable ? isActive : undefined}
       onClick={cfg.expandable ? onClick : undefined}
       onKeyDown={
-        cfg.expandable
-          ? (e) => e.key === "Enter" && onClick()
-          : undefined
+        cfg.expandable ? (e) => e.key === "Enter" && onClick() : undefined
       }
       sx={{
         background: isDark
@@ -232,7 +241,10 @@ const KPICard: React.FC<KPICardProps> = ({
             : "0 2px 10px rgba(0,0,0,0.06)",
         transform: isActive ? "translateY(-2px)" : "none",
         "&:hover": cfg.expandable
-          ? { transform: "translateY(-2px)", boxShadow: `0 8px 32px ${cfg.color}28` }
+          ? {
+              transform: "translateY(-2px)",
+              boxShadow: `0 8px 32px ${cfg.color}28`,
+            }
           : {},
         "&:focus-visible": {
           outline: `2px solid ${cfg.color}`,
@@ -250,7 +262,14 @@ const KPICard: React.FC<KPICardProps> = ({
       }}
     >
       {/* Header row */}
-      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 1.5 }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          mb: 1.5,
+        }}
+      >
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <Box
             sx={{
@@ -267,7 +286,9 @@ const KPICard: React.FC<KPICardProps> = ({
           >
             {cfg.icon}
           </Box>
-          <Typography sx={{ fontSize: 12, fontWeight: 700, color: text, lineHeight: 1.2 }}>
+          <Typography
+            sx={{ fontSize: 12, fontWeight: 700, color: text, lineHeight: 1.2 }}
+          >
             {cfg.label}
           </Typography>
         </Box>
@@ -279,7 +300,11 @@ const KPICard: React.FC<KPICardProps> = ({
               borderRadius: 0.8,
               fontSize: 9,
               fontWeight: 700,
-              bgcolor: isActive ? `${cfg.color}22` : isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)",
+              bgcolor: isActive
+                ? `${cfg.color}22`
+                : isDark
+                  ? "rgba(255,255,255,0.05)"
+                  : "rgba(0,0,0,0.04)",
               border: `1px solid ${isActive ? `${cfg.color}44` : "transparent"}`,
               color: isActive ? cfg.color : muted,
               transition: "all 0.2s",
@@ -304,7 +329,9 @@ const KPICard: React.FC<KPICardProps> = ({
           {value}
         </Typography>
         <Box sx={{ display: "flex", alignItems: "center", gap: 0.25 }}>
-          <Typography sx={{ fontSize: 9, color: trendColor }}>{trend >= 0 ? "▲" : "▼"}</Typography>
+          <Typography sx={{ fontSize: 9, color: trendColor }}>
+            {trend >= 0 ? "▲" : "▼"}
+          </Typography>
           <Typography sx={{ fontSize: 11, color: trendColor, fontWeight: 600 }}>
             {Math.abs(trend).toFixed(1)}%
           </Typography>
@@ -346,20 +373,29 @@ const WorkflowExpandPanel: React.FC<WorkflowExpandPanelProps> = ({
   const text = isDark ? "#e2e8f0" : "#1e293b";
   const muted = isDark ? "#64748b" : "#94a3b8";
   const panelBg = isDark ? "rgba(255,255,255,0.02)" : "#f8fafc";
-  const accentColor = type === "sla" ? "#8b5cf6" : type === "total" ? "#38bdf8" : "#fb923c";
+  const accentColor =
+    type === "sla" ? "#8b5cf6" : type === "total" ? "#38bdf8" : "#fb923c";
 
   // ── SLA domain breakdown ──
   if (type === "sla") {
     return (
-      <Box sx={{ ...panelSx(isDark), mb: 1.5, "&::before": { display: "none" } }}>
+      <Box
+        sx={{ ...panelSx(isDark), mb: 1.5, "&::before": { display: "none" } }}
+      >
         <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2 }}>
-          <Box sx={{ width: 3, height: 18, borderRadius: 2, bgcolor: "#8b5cf6" }} />
+          <Box
+            sx={{ width: 3, height: 18, borderRadius: 2, bgcolor: "#8b5cf6" }}
+          />
           <Typography sx={{ fontSize: 13, fontWeight: 700, color: text }}>
             SLA Score — Domain Breakdown
           </Typography>
         </Box>
         <Box
-          sx={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(150px,1fr))", gap: 1.5 }}
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill,minmax(150px,1fr))",
+            gap: 1.5,
+          }}
         >
           {slaDomains.map((d) => {
             const c = slaColor(d.score);
@@ -373,8 +409,16 @@ const WorkflowExpandPanel: React.FC<WorkflowExpandPanelProps> = ({
                   border: `1px solid ${isDark ? "rgba(99,130,180,0.12)" : "#e2e8f0"}`,
                 }}
               >
-                <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
-                  <Typography sx={{ fontSize: 11, color: muted, fontWeight: 500 }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    mb: 1,
+                  }}
+                >
+                  <Typography
+                    sx={{ fontSize: 11, color: muted, fontWeight: 500 }}
+                  >
                     {d.domain}
                   </Typography>
                   <Typography
@@ -426,11 +470,21 @@ const WorkflowExpandPanel: React.FC<WorkflowExpandPanelProps> = ({
 
   return (
     <Box sx={{ ...panelSx(isDark), mb: 1.5, "&::before": { display: "none" } }}>
-      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 2 }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          mb: 2,
+        }}
+      >
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <Box sx={{ width: 3, height: 18, borderRadius: 2, bgcolor: accentColor }} />
+          <Box
+            sx={{ width: 3, height: 18, borderRadius: 2, bgcolor: accentColor }}
+          />
           <Typography sx={{ fontSize: 13, fontWeight: 700, color: text }}>
-            {type === "total" ? "Total CRQ" : "Open CRQ"} — Workflow Stage Breakdown
+            {type === "total" ? "Total CRQ" : "Open CRQ"} — Workflow Stage
+            Breakdown
           </Typography>
         </Box>
         <Chip
@@ -447,7 +501,11 @@ const WorkflowExpandPanel: React.FC<WorkflowExpandPanelProps> = ({
         />
       </Box>
       <Box
-        sx={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(140px,1fr))", gap: 1.5 }}
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill,minmax(140px,1fr))",
+          gap: 1.5,
+        }}
       >
         {data.map((s) => {
           const pct = Math.round((s.count / total) * 100);
@@ -465,7 +523,11 @@ const WorkflowExpandPanel: React.FC<WorkflowExpandPanelProps> = ({
                 p: 1.5,
                 position: "relative",
                 border: `1px solid ${
-                  isMax ? `${barColor}44` : isDark ? "rgba(99,130,180,0.12)" : "#e2e8f0"
+                  isMax
+                    ? `${barColor}44`
+                    : isDark
+                      ? "rgba(99,130,180,0.12)"
+                      : "#e2e8f0"
                 }`,
                 transition: "transform 0.15s ease",
                 "&:hover": { transform: "translateY(-1px)" },
@@ -491,14 +553,29 @@ const WorkflowExpandPanel: React.FC<WorkflowExpandPanelProps> = ({
                 </Box>
               )}
               <Typography
-                sx={{ fontSize: 10, color: muted, mb: 0.8, lineHeight: 1.4, pr: isMax ? 4 : 0 }}
+                sx={{
+                  fontSize: 10,
+                  color: muted,
+                  mb: 0.8,
+                  lineHeight: 1.4,
+                  pr: isMax ? 4 : 0,
+                }}
               >
                 {s.name}
               </Typography>
-              <Typography sx={{ fontSize: 22, fontWeight: 800, color: text, lineHeight: 1 }}>
+              <Typography
+                sx={{
+                  fontSize: 22,
+                  fontWeight: 800,
+                  color: text,
+                  lineHeight: 1,
+                }}
+              >
                 {s.count}
               </Typography>
-              <Typography sx={{ fontSize: 10, color: muted, mb: 1 }}>{pct}% of total</Typography>
+              <Typography sx={{ fontSize: 10, color: muted, mb: 1 }}>
+                {pct}% of total
+              </Typography>
               <Box
                 sx={{
                   height: 4,
@@ -547,7 +624,10 @@ const ChartCard: React.FC<ChartCardProps> = ({
       <Skeleton
         variant="rectangular"
         height={height}
-        sx={{ borderRadius: 2, bgcolor: isDark ? "rgba(255,255,255,0.04)" : "#f1f5f9" }}
+        sx={{
+          borderRadius: 2,
+          bgcolor: isDark ? "rgba(255,255,255,0.04)" : "#f1f5f9",
+        }}
       />
     ) : (
       <Box sx={{ height }}>{children}</Box>
@@ -581,17 +661,32 @@ const CustomTooltip = ({
       }}
     >
       {label && (
-        <Typography sx={{ fontSize: 10, color: isDark ? "#64748b" : "#94a3b8", mb: 0.5 }}>
+        <Typography
+          sx={{ fontSize: 10, color: isDark ? "#64748b" : "#94a3b8", mb: 0.5 }}
+        >
           {label}
         </Typography>
       )}
       {payload.map((p) => (
-        <Box key={p.name} sx={{ display: "flex", alignItems: "center", gap: 0.8, mb: 0.25 }}>
-          <Box sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: p.color }} />
-          <Typography sx={{ fontSize: 11, color: isDark ? "#94a3b8" : "#64748b" }}>
+        <Box
+          key={p.name}
+          sx={{ display: "flex", alignItems: "center", gap: 0.8, mb: 0.25 }}
+        >
+          <Box
+            sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: p.color }}
+          />
+          <Typography
+            sx={{ fontSize: 11, color: isDark ? "#94a3b8" : "#64748b" }}
+          >
             {p.name}:
           </Typography>
-          <Typography sx={{ fontSize: 11, fontWeight: 700, color: isDark ? "#e2e8f0" : "#1e293b" }}>
+          <Typography
+            sx={{
+              fontSize: 11,
+              fontWeight: 700,
+              color: isDark ? "#e2e8f0" : "#1e293b",
+            }}
+          >
             {p.value}
           </Typography>
         </Box>
@@ -605,17 +700,35 @@ const FILTER_CONFIGS = [
   {
     key: "function",
     label: "Function",
-    opts: ["All Functions", "IP Core", "Optics", "Service Optimisation", "IP Access_CCB", "Service Optimisation ", "Packet"],
+    opts: ["All Functions", "SE", "CCB"],
   },
   {
     key: "domain",
     label: "Domain",
-    opts: ["All Domains", "BRAS", "BRAS_IP", "CEN","MPLS"],
+    opts: [
+      "All Domains",
+      "IP Core",
+      "Optics",
+      "Service Optimisation",
+      "IP Access_CCB",
+      "Service Optimisation ",
+      "Packet",
+      "BRAS",
+      "BRAS_IP",
+      "CEN",
+      "MPLS",
+    ],
   },
   {
     key: "subDomain",
     label: "Sub-Domain",
-    opts: ["All Sub-Domains", "MPLS-Core", "CEN-Core","Packet Change_CCB - Packet ECI_CCB","BRAS Core_CCB"],
+    opts: [
+      "All Sub-Domains",
+      "MPLS-Core",
+      "CEN-Core",
+      "Packet Change_CCB - Packet ECI_CCB",
+      "BRAS Core_CCB",
+    ],
   },
   {
     key: "circle",
@@ -633,8 +746,16 @@ const CRQAnalyticsMain: React.FC = () => {
   const isDark = theme.palette.mode === "dark";
 
   // ── Filter state ──────────────────────────────────────────────────────────
-  const [startDate, setStartDate] = useState<Dayjs>(() => dayjs().startOf("month"));
+  const [startDate, setStartDate] = useState<Dayjs>(() =>
+    dayjs().startOf("month"),
+  );
   const [endDate, setEndDate] = useState<Dayjs>(() => dayjs().endOf("month"));
+  // const [filters, setFilters] = useState<FilterState>({
+  //   function: "All Functions",
+  //   domain: "All Domains",
+  //   subDomain: "All Sub-Domains",
+  //   circle: "All Circles",
+  // });
   const [filters, setFilters] = useState<FilterState>({
     function: "All Functions",
     domain: "All Domains",
@@ -642,10 +763,57 @@ const CRQAnalyticsMain: React.FC = () => {
     circle: "All Circles",
   });
 
-  const handleFilterChange = useCallback((key: FilterKey) => (e: SelectChangeEvent) => {
-    setFilters((prev) => ({ ...prev, [key]: e.target.value }));
-  }, []);
+  const domainOptions = useMemo(() => {
+    if (filters.function === "All Functions") {
+      return ["All Domains"];
+    }
+    return [
+      "All Domains",
+      ...Object.keys(FUNC_HIERARCHY[filters.function] || {}),
+    ];
+  }, [filters.function]);
 
+  const subDomainOptions = useMemo(() => {
+    if (filters.domain === "All Domains") {
+      return ["All Sub-Domains"];
+    }
+
+    if (
+      filters.function !== "All Functions" &&
+      FUNC_HIERARCHY[filters.function]?.[filters.domain]
+    ) {
+      return [
+        "All Sub-Domains",
+        ...FUNC_HIERARCHY[filters.function][filters.domain],
+      ];
+    }
+
+    return ["All Sub-Domains"];
+  }, [filters.function, filters.domain]);
+
+  const handleFilterChange = useCallback(
+    (key: FilterKey) => (e: SelectChangeEvent) => {
+      setFilters((prev) => ({ ...prev, [key]: e.target.value }));
+    },
+    [],
+  );
+
+  const handleFunctionChange = (value: string) => {
+    setFilters((prev) => ({
+      ...prev,
+      function: value,
+      domain: "All Domains",
+      subDomain: "All Sub-Domains",
+    }));
+  };
+
+  const handleDomainChange = (value: string) => {
+    setFilters((prev) => ({
+      ...prev,
+      domain: value,
+      subDomain: "All Sub-Domains",
+    }));
+  };
   // ── KPI expand state ──────────────────────────────────────────────────────
   const [activePanel, setActivePanel] = useState<KpiId | null>(null);
   const handleCardClick = useCallback((id: KpiId) => {
@@ -691,11 +859,31 @@ const CRQAnalyticsMain: React.FC = () => {
   // ── KPI display values ────────────────────────────────────────────────────
   const kpiValues = useMemo(
     () => ({
-      total:    { value: data?.kpi?.totalCrq    ?? 120,  sub: "All requests",  trend: data?.kpi?.totalTrendPct    ?? 8    },
-      open:     { value: data?.kpi?.openCrq     ?? 48,   sub: "In progress",   trend: data?.kpi?.openTrendPct     ?? -3   },
-      closed:   { value: data?.kpi?.closedCrq   ?? 62,   sub: "Completed",     trend: data?.kpi?.closedTrendPct   ?? 12   },
-      rejected: { value: data?.kpi?.rejected    ?? 10,   sub: "Declined",      trend: data?.kpi?.rejectedTrendPct ?? -2   },
-      sla:      { value: `${data?.kpi?.slaScore ?? 87}%`, sub: "On-time rate", trend: data?.kpi?.slaTrendPct      ?? 1.2  },
+      total: {
+        value: data?.kpi?.totalCrq ?? 120,
+        sub: "All requests",
+        trend: data?.kpi?.totalTrendPct ?? 8,
+      },
+      open: {
+        value: data?.kpi?.openCrq ?? 48,
+        sub: "In progress",
+        trend: data?.kpi?.openTrendPct ?? -3,
+      },
+      closed: {
+        value: data?.kpi?.closedCrq ?? 62,
+        sub: "Completed",
+        trend: data?.kpi?.closedTrendPct ?? 12,
+      },
+      rejected: {
+        value: data?.kpi?.rejected ?? 10,
+        sub: "Declined",
+        trend: data?.kpi?.rejectedTrendPct ?? -2,
+      },
+      sla: {
+        value: `${data?.kpi?.slaScore ?? 87}%`,
+        sub: "On-time rate",
+        trend: data?.kpi?.slaTrendPct ?? 1.2,
+      },
     }),
     [data],
   );
@@ -718,7 +906,6 @@ const CRQAnalyticsMain: React.FC = () => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Box sx={{ pb: 2 }}>
-
         {/* ── Filter bar ────────────────────────────────────────────────── */}
         <Box
           sx={{
@@ -749,7 +936,10 @@ const CRQAnalyticsMain: React.FC = () => {
             slotProps={{
               textField: {
                 size: "small",
-                sx: { minWidth: 148, "& .MuiInputBase-root": { height: 32, fontSize: 12 } },
+                sx: {
+                  minWidth: 148,
+                  "& .MuiInputBase-root": { height: 32, fontSize: 12 },
+                },
               },
             }}
           />
@@ -761,7 +951,10 @@ const CRQAnalyticsMain: React.FC = () => {
             slotProps={{
               textField: {
                 size: "small",
-                sx: { minWidth: 148, "& .MuiInputBase-root": { height: 32, fontSize: 12 } },
+                sx: {
+                  minWidth: 148,
+                  "& .MuiInputBase-root": { height: 32, fontSize: 12 },
+                },
               },
             }}
           />
@@ -769,22 +962,63 @@ const CRQAnalyticsMain: React.FC = () => {
           <Divider orientation="vertical" flexItem sx={{ my: 0.5, mx: 0 }} />
 
           {/* Dropdowns */}
-          {FILTER_CONFIGS.map((fc) => (
-            <FormControl key={fc.key} size="small">
-              <Select
-                value={filters[fc.key]}
-                onChange={handleFilterChange(fc.key)}
-                displayEmpty
-                sx={{ ...selectSx(isDark), minWidth: 132 }}
-              >
-                {fc.opts.map((o) => (
-                  <MenuItem key={o} value={o} sx={{ fontSize: 12 }}>
-                    {o}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          ))}
+          {/* Function */}
+          <Select
+            value={filters.function}
+            onChange={(e) => handleFunctionChange(e.target.value)}
+            sx={{ ...selectSx(isDark), minWidth: 132 }}
+          >
+            {["All Functions", "SE", "CCB"].map((o) => (
+              <MenuItem key={o} value={o}>
+                {o}
+              </MenuItem>
+            ))}
+          </Select>
+
+          {/* Domain */}
+          <Select
+            value={filters.domain}
+            onChange={(e) => handleDomainChange(e.target.value)}
+            sx={{ ...selectSx(isDark), minWidth: 132 }}
+          >
+            {domainOptions.map((o) => (
+              <MenuItem key={o} value={o}>
+                {o}
+              </MenuItem>
+            ))}
+          </Select>
+
+          {/* SubDomain */}
+          <Select
+            value={filters.subDomain}
+            onChange={(e) =>
+              setFilters((prev) => ({ ...prev, subDomain: e.target.value }))
+            }
+            sx={{ ...selectSx(isDark), minWidth: 132 }}
+          >
+            {subDomainOptions.map((o) => (
+              <MenuItem key={o} value={o}>
+                {o}
+              </MenuItem>
+            ))}
+          </Select>
+
+          <FormControl size="small">
+            <Select
+              value={filters.circle}
+              onChange={(e) =>
+                setFilters((prev) => ({ ...prev, circle: e.target.value }))
+              }
+              displayEmpty
+              sx={{ ...selectSx(isDark), minWidth: 132 }}
+            >
+              {CIRCLE_OPTIONS.map((o) => (
+                <MenuItem key={o} value={o}>
+                  {o}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </Box>
 
         {/* ── Error banner ──────────────────────────────────────────────── */}
@@ -802,7 +1036,11 @@ const CRQAnalyticsMain: React.FC = () => {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: { xs: "1fr 1fr", sm: "repeat(3,1fr)", md: "repeat(5,1fr)" },
+            gridTemplateColumns: {
+              xs: "1fr 1fr",
+              sm: "repeat(3,1fr)",
+              md: "repeat(5,1fr)",
+            },
             gap: 1.5,
             mb: 1.5,
           }}
@@ -854,7 +1092,11 @@ const CRQAnalyticsMain: React.FC = () => {
           }}
         >
           {/* Raised vs Closed */}
-          <ChartCard title="CRQ RAISED VS CLOSED" isDark={isDark} isLoading={isFetching}>
+          <ChartCard
+            title="CRQ RAISED VS CLOSED"
+            isDark={isDark}
+            isLoading={isFetching}
+          >
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart
                 data={raisedVsClosed}
@@ -862,21 +1104,32 @@ const CRQAnalyticsMain: React.FC = () => {
               >
                 <defs>
                   <linearGradient id="grRaised" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%"  stopColor="#38bdf8" stopOpacity={0.35} />
+                    <stop offset="5%" stopColor="#38bdf8" stopOpacity={0.35} />
                     <stop offset="95%" stopColor="#38bdf8" stopOpacity={0} />
                   </linearGradient>
                   <linearGradient id="grClosed" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%"  stopColor="#4ade80" stopOpacity={0.35} />
+                    <stop offset="5%" stopColor="#4ade80" stopOpacity={0.35} />
                     <stop offset="95%" stopColor="#4ade80" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
-                <XAxis dataKey="label" tick={{ fontSize: 9, fill: tickColor }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 9, fill: tickColor }} axisLine={false} tickLine={false} />
+                <XAxis
+                  dataKey="label"
+                  tick={{ fontSize: 9, fill: tickColor }}
+                  axisLine={false}
+                  tickLine={false}
+                />
+                <YAxis
+                  tick={{ fontSize: 9, fill: tickColor }}
+                  axisLine={false}
+                  tickLine={false}
+                />
                 <RTooltip contentStyle={tooltipStyle} />
                 <Legend
                   wrapperStyle={{ fontSize: 10, paddingTop: 6 }}
-                  formatter={(v) => <span style={{ color: tickColor }}>{v}</span>}
+                  formatter={(v) => (
+                    <span style={{ color: tickColor }}>{v}</span>
+                  )}
                 />
                 <Area
                   type="monotone"
@@ -903,14 +1156,22 @@ const CRQAnalyticsMain: React.FC = () => {
           </ChartCard>
 
           {/* Bottleneck */}
-          <ChartCard title="BOTTLENECK DETECTION" isDark={isDark} isLoading={isFetching}>
+          <ChartCard
+            title="BOTTLENECK DETECTION"
+            isDark={isDark}
+            isLoading={isFetching}
+          >
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 data={bottlenecks}
                 layout="vertical"
                 margin={{ top: 4, right: 24, bottom: 0, left: 0 }}
               >
-                <CartesianGrid strokeDasharray="3 3" stroke={gridColor} horizontal={false} />
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  stroke={gridColor}
+                  horizontal={false}
+                />
                 <XAxis
                   type="number"
                   tick={{ fontSize: 9, fill: tickColor }}
@@ -930,9 +1191,20 @@ const CRQAnalyticsMain: React.FC = () => {
                   contentStyle={tooltipStyle}
                   formatter={(v: number) => [`${v}h`, "Avg Wait"]}
                 />
-                <Bar dataKey="avgWaitHours" radius={[0, 4, 4, 0]} maxBarSize={18}>
+                <Bar
+                  dataKey="avgWaitHours"
+                  radius={[0, 4, 4, 0]}
+                  maxBarSize={18}
+                >
                   {bottlenecks.map((_, i) => (
-                    <Cell key={i} fill={BOTTLENECK_PALETTE[Math.min(i, BOTTLENECK_PALETTE.length - 1)]} />
+                    <Cell
+                      key={i}
+                      fill={
+                        BOTTLENECK_PALETTE[
+                          Math.min(i, BOTTLENECK_PALETTE.length - 1)
+                        ]
+                      }
+                    />
                   ))}
                 </Bar>
               </BarChart>
@@ -940,14 +1212,23 @@ const CRQAnalyticsMain: React.FC = () => {
           </ChartCard>
 
           {/* Domain SLA */}
-          <ChartCard title="DOMAIN SLA PERFORMANCE" isDark={isDark} isLoading={isFetching}>
+          <ChartCard
+            title="DOMAIN SLA PERFORMANCE"
+            isDark={isDark}
+            isLoading={isFetching}
+          >
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 data={domainSlaChart}
                 margin={{ top: 8, right: 8, bottom: 0, left: -24 }}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
-                <XAxis dataKey="domain" tick={{ fontSize: 9, fill: tickColor }} axisLine={false} tickLine={false} />
+                <XAxis
+                  dataKey="domain"
+                  tick={{ fontSize: 9, fill: tickColor }}
+                  axisLine={false}
+                  tickLine={false}
+                />
                 <YAxis
                   domain={[60, 100]}
                   tick={{ fontSize: 9, fill: tickColor }}
@@ -978,14 +1259,22 @@ const CRQAnalyticsMain: React.FC = () => {
           }}
         >
           {/* Radar */}
-          <ChartCard title="DOMAIN COVERAGE RADAR" isDark={isDark} height={240} isLoading={isFetching}>
+          <ChartCard
+            title="DOMAIN COVERAGE RADAR"
+            isDark={isDark}
+            height={240}
+            isLoading={isFetching}
+          >
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart
                 data={radarCoverage}
                 margin={{ top: 12, right: 24, bottom: 12, left: 24 }}
               >
                 <PolarGrid stroke={gridColor} />
-                <PolarAngleAxis dataKey="subject" tick={{ fontSize: 10, fill: tickColor }} />
+                <PolarAngleAxis
+                  dataKey="subject"
+                  tick={{ fontSize: 10, fill: tickColor }}
+                />
                 <PolarRadiusAxis
                   angle={90}
                   domain={[0, 100]}
@@ -1008,22 +1297,39 @@ const CRQAnalyticsMain: React.FC = () => {
           </ChartCard>
 
           {/* Domain CRQ count */}
-          <ChartCard title="DOMAIN WISE CRQ ANALYSIS" isDark={isDark} height={240} isLoading={isFetching}>
+          <ChartCard
+            title="DOMAIN WISE CRQ ANALYSIS"
+            isDark={isDark}
+            height={240}
+            isLoading={isFetching}
+          >
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 data={domainCrqCount}
                 margin={{ top: 8, right: 8, bottom: 0, left: -20 }}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
-                <XAxis dataKey="domain" tick={{ fontSize: 9, fill: tickColor }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 9, fill: tickColor }} axisLine={false} tickLine={false} />
+                <XAxis
+                  dataKey="domain"
+                  tick={{ fontSize: 9, fill: tickColor }}
+                  axisLine={false}
+                  tickLine={false}
+                />
+                <YAxis
+                  tick={{ fontSize: 9, fill: tickColor }}
+                  axisLine={false}
+                  tickLine={false}
+                />
                 <RTooltip
                   contentStyle={tooltipStyle}
                   formatter={(v: number) => [v, "CRQ Count"]}
                 />
                 <Bar dataKey="count" radius={[4, 4, 0, 0]} maxBarSize={32}>
                   {domainCrqCount.map((_, i) => (
-                    <Cell key={i} fill={DOMAIN_PALETTE[i % DOMAIN_PALETTE.length]} />
+                    <Cell
+                      key={i}
+                      fill={DOMAIN_PALETTE[i % DOMAIN_PALETTE.length]}
+                    />
                   ))}
                 </Bar>
               </BarChart>
@@ -1043,7 +1349,8 @@ const CRQAnalyticsMain: React.FC = () => {
           <Typography sx={{ fontSize: 10, color: muted }}>
             Filtered:{" "}
             <Box component="span" sx={{ color: text, fontWeight: 600 }}>
-              {startDate.format("DD MMM YYYY")} → {endDate.format("DD MMM YYYY")}
+              {startDate.format("DD MMM YYYY")} →{" "}
+              {endDate.format("DD MMM YYYY")}
             </Box>
           </Typography>
           <Box sx={{ display: "flex", alignItems: "center", gap: 0.8 }}>
@@ -1066,3 +1373,42 @@ const CRQAnalyticsMain: React.FC = () => {
 };
 
 export default CRQAnalyticsMain;
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+const FUNC_HIERARCHY: Record<string, Record<string, string[]>> = {
+  SE: {
+    "IP Core": ["MPLS-Core", "BRAS-Core", "CEN-Core"],
+    Packet: ["Packet-Change", "Packet_NI"],
+    "Embedded Support": ["All"],
+    "IP Access": ["MPLS-Access", "CEN-Access", "OLT Access"],
+    Optics: ["Network_expansion", "NNI", "OTN/LCD", "Project"],
+    "Service Optimisation": ["All"],
+  },
+  CCB: {
+    "IP Core_CCB": ["MPLS-Core_CCB", "BRAS-Core_CCB", "CEN-Core_CCB"],
+    Packet_CCB: ["Packet-Change_CCB", "Packet_NI_CCB"],
+    "Embedded Support_CCB": ["All"],
+    "IP Access_CCB": ["MPLS-Access_CCB", "CEN-Access_CCB", "OLT Access_CCB"],
+    Optics_CCB: ["Network_expansion_CCB", "Project_CCB"],
+    "Service Optimisation_CCB": ["All"],
+  },
+};
+
+const CIRCLE_OPTIONS = [
+  "All Circles",
+  "Maharashtra",
+  "Gujarat",
+  "Kerala",
+  "Tamil Nadu",
+  "Karnataka",
+  "Delhi",
+  "Punjab",
+  "Rajasthan",
+  "UP East",
+  "UP West",
+  "Bihar",
+  "Odisha",
+  "West Bengal",
+  "Andhra Pradesh",
+  "Haryana",
+];
