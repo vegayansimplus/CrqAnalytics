@@ -119,7 +119,28 @@ const CHART_POPUP_CONFIGS: Record<
       key: "avgWait",
       label: "Avg Wait",
       getValue: (_r, i) =>
-        ["72h","48h","32h","18h","24h","56h","40h","12h","64h","36h","44h","28h","20h","52h","16h","68h","8h","76h","60h","4h"][i % 20],
+        [
+          "72h",
+          "48h",
+          "32h",
+          "18h",
+          "24h",
+          "56h",
+          "40h",
+          "12h",
+          "64h",
+          "36h",
+          "44h",
+          "28h",
+          "20h",
+          "52h",
+          "16h",
+          "68h",
+          "8h",
+          "76h",
+          "60h",
+          "4h",
+        ][i % 20],
     },
   },
   domainsla: {
@@ -128,7 +149,28 @@ const CHART_POPUP_CONFIGS: Record<
       key: "slaScore",
       label: "SLA Score",
       getValue: (_r, i) =>
-        ["94%","88%","72%","85%","91%","76%","89%","83%","68%","95%","79%","87%","73%","92%","81%","70%","96%","84%","78%","90%"][i % 20],
+        [
+          "94%",
+          "88%",
+          "72%",
+          "85%",
+          "91%",
+          "76%",
+          "89%",
+          "83%",
+          "68%",
+          "95%",
+          "79%",
+          "87%",
+          "73%",
+          "92%",
+          "81%",
+          "70%",
+          "96%",
+          "84%",
+          "78%",
+          "90%",
+        ][i % 20],
     },
   },
   radar: {
@@ -137,7 +179,28 @@ const CHART_POPUP_CONFIGS: Record<
       key: "coverage",
       label: "Coverage %",
       getValue: (_r, i) =>
-        ["82%","91%","75%","88%","94%","70%","86%","79%","93%","68%","85%","77%","90%","83%","72%","89%","76%","95%","81%","74%"][i % 20],
+        [
+          "82%",
+          "91%",
+          "75%",
+          "88%",
+          "94%",
+          "70%",
+          "86%",
+          "79%",
+          "93%",
+          "68%",
+          "85%",
+          "77%",
+          "90%",
+          "83%",
+          "72%",
+          "89%",
+          "76%",
+          "95%",
+          "81%",
+          "74%",
+        ][i % 20],
     },
   },
   domaincrq: {
@@ -146,7 +209,28 @@ const CHART_POPUP_CONFIGS: Record<
       key: "domainGroup",
       label: "Domain Group",
       getValue: (_r, i) =>
-        ["IP Core","Packet","Optics","BRAS","CEN","MPLS","IP Access","IP Core","Packet","Optics","BRAS","CEN","MPLS","IP Access","IP Core","Packet","Optics","BRAS","CEN","MPLS"][i % 20],
+        [
+          "IP Core",
+          "Packet",
+          "Optics",
+          "BRAS",
+          "CEN",
+          "MPLS",
+          "IP Access",
+          "IP Core",
+          "Packet",
+          "Optics",
+          "BRAS",
+          "CEN",
+          "MPLS",
+          "IP Access",
+          "IP Core",
+          "Packet",
+          "Optics",
+          "BRAS",
+          "CEN",
+          "MPLS",
+        ][i % 20],
     },
   },
 };
@@ -309,40 +393,69 @@ const KPICard: React.FC<KPICardProps> = ({
             : "0 2px 10px rgba(0,0,0,0.06)",
         transform: isActive ? "translateY(-2px)" : "none",
         "&:hover": cfg.expandable
-          ? { transform: "translateY(-2px)", boxShadow: `0 8px 32px ${cfg.color}28` }
+          ? {
+              transform: "translateY(-2px)",
+              boxShadow: `0 8px 32px ${cfg.color}28`,
+            }
           : {},
-        "&:focus-visible": { outline: `2px solid ${cfg.color}`, outlineOffset: 2 },
+        "&:focus-visible": {
+          outline: `2px solid ${cfg.color}`,
+          outlineOffset: 2,
+        },
         "&::before": {
           content: '""',
           position: "absolute",
-          top: 0, left: 0, right: 0,
+          top: 0,
+          left: 0,
+          right: 0,
           height: "2px",
           background: `linear-gradient(90deg,transparent,${cfg.color},transparent)`,
         },
       }}
     >
-      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 1.5 }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          mb: 1.5,
+        }}
+      >
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <Box
             sx={{
-              width: 32, height: 32, borderRadius: 1.5,
+              width: 32,
+              height: 32,
+              borderRadius: 1.5,
               bgcolor: cfg.iconBg,
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: 15, flexShrink: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 15,
+              flexShrink: 0,
             }}
           >
             {cfg.icon}
           </Box>
-          <Typography sx={{ fontSize: 12, fontWeight: 700, color: text, lineHeight: 1.2 }}>
+          <Typography
+            sx={{ fontSize: 12, fontWeight: 700, color: text, lineHeight: 1.2 }}
+          >
             {cfg.label}
           </Typography>
         </Box>
         {cfg.expandable && (
           <Box
             sx={{
-              px: 0.8, py: 0.15, borderRadius: 0.8,
-              fontSize: 9, fontWeight: 700,
-              bgcolor: isActive ? `${cfg.color}22` : isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)",
+              px: 0.8,
+              py: 0.15,
+              borderRadius: 0.8,
+              fontSize: 9,
+              fontWeight: 700,
+              bgcolor: isActive
+                ? `${cfg.color}22`
+                : isDark
+                  ? "rgba(255,255,255,0.05)"
+                  : "rgba(0,0,0,0.04)",
               border: `1px solid ${isActive ? `${cfg.color}44` : "transparent"}`,
               color: isActive ? cfg.color : muted,
               transition: "all 0.2s",
@@ -354,11 +467,21 @@ const KPICard: React.FC<KPICardProps> = ({
       </Box>
 
       <Box sx={{ display: "flex", alignItems: "baseline", gap: 1, mb: 0.5 }}>
-        <Typography sx={{ fontSize: 28, fontWeight: 800, color: cfg.color, letterSpacing: "-0.5px", lineHeight: 1 }}>
+        <Typography
+          sx={{
+            fontSize: 28,
+            fontWeight: 800,
+            color: cfg.color,
+            letterSpacing: "-0.5px",
+            lineHeight: 1,
+          }}
+        >
           {value}
         </Typography>
         <Box sx={{ display: "flex", alignItems: "center", gap: 0.25 }}>
-          <Typography sx={{ fontSize: 9, color: trendColor }}>{trend >= 0 ? "▲" : "▼"}</Typography>
+          <Typography sx={{ fontSize: 9, color: trendColor }}>
+            {trend >= 0 ? "▲" : "▼"}
+          </Typography>
           <Typography sx={{ fontSize: 11, color: trendColor, fontWeight: 600 }}>
             {Math.abs(trend).toFixed(1)}%
           </Typography>
@@ -369,7 +492,11 @@ const KPICard: React.FC<KPICardProps> = ({
       {isActive && (
         <Box
           sx={{
-            position: "absolute", bottom: 0, left: 0, right: 0, height: 3,
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: 3,
             background: `linear-gradient(90deg,transparent,${cfg.color},transparent)`,
           }}
         />
@@ -400,32 +527,78 @@ const WorkflowExpandPanel: React.FC<WorkflowExpandPanelProps> = ({
 
   if (type === "sla") {
     return (
-      <Box sx={{ ...panelSx(isDark), mb: 1.5, "&::before": { display: "none" } }}>
+      <Box
+        sx={{ ...panelSx(isDark), mb: 1.5, "&::before": { display: "none" } }}
+      >
         <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2 }}>
-          <Box sx={{ width: 3, height: 18, borderRadius: 2, bgcolor: "#8b5cf6" }} />
+          <Box
+            sx={{ width: 3, height: 18, borderRadius: 2, bgcolor: "#8b5cf6" }}
+          />
           <Typography sx={{ fontSize: 13, fontWeight: 700, color: text }}>
             SLA Score — Domain Breakdown
           </Typography>
         </Box>
-        <Box sx={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(150px,1fr))", gap: 1.5 }}>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill,minmax(150px,1fr))",
+            gap: 1.5,
+          }}
+        >
           {slaDomains.map((d) => {
             const c = slaColor(d.score);
             return (
               <Box
                 key={d.domain}
                 sx={{
-                  background: panelBg, borderRadius: 2, p: 1.5,
+                  background: panelBg,
+                  borderRadius: 2,
+                  p: 1.5,
                   border: `1px solid ${isDark ? "rgba(99,130,180,0.12)" : "#e2e8f0"}`,
                 }}
               >
-                <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
-                  <Typography sx={{ fontSize: 11, color: muted, fontWeight: 500 }}>{d.domain}</Typography>
-                  <Typography sx={{ fontSize: 11, fontWeight: 700, color: c.text, bgcolor: `${c.bar}20`, px: 0.8, borderRadius: 0.8 }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    mb: 1,
+                  }}
+                >
+                  <Typography
+                    sx={{ fontSize: 11, color: muted, fontWeight: 500 }}
+                  >
+                    {d.domain}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: 11,
+                      fontWeight: 700,
+                      color: c.text,
+                      bgcolor: `${c.bar}20`,
+                      px: 0.8,
+                      borderRadius: 0.8,
+                    }}
+                  >
                     {d.score}%
                   </Typography>
                 </Box>
-                <Box sx={{ height: 5, bgcolor: isDark ? "rgba(30,41,59,0.8)" : "#e2e8f0", borderRadius: 3, overflow: "hidden" }}>
-                  <Box sx={{ width: `${d.score}%`, height: "100%", bgcolor: c.bar, borderRadius: 3, transition: "width 0.5s cubic-bezier(0.4,0,0.2,1)" }} />
+                <Box
+                  sx={{
+                    height: 5,
+                    bgcolor: isDark ? "rgba(30,41,59,0.8)" : "#e2e8f0",
+                    borderRadius: 3,
+                    overflow: "hidden",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: `${d.score}%`,
+                      height: "100%",
+                      bgcolor: c.bar,
+                      borderRadius: 3,
+                      transition: "width 0.5s cubic-bezier(0.4,0,0.2,1)",
+                    }}
+                  />
                 </Box>
               </Box>
             );
@@ -444,45 +617,122 @@ const WorkflowExpandPanel: React.FC<WorkflowExpandPanelProps> = ({
 
   return (
     <Box sx={{ ...panelSx(isDark), mb: 1.5, "&::before": { display: "none" } }}>
-      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 2 }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          mb: 2,
+        }}
+      >
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <Box sx={{ width: 3, height: 18, borderRadius: 2, bgcolor: accentColor }} />
+          <Box
+            sx={{ width: 3, height: 18, borderRadius: 2, bgcolor: accentColor }}
+          />
           <Typography sx={{ fontSize: 13, fontWeight: 700, color: text }}>
-            {type === "total" ? "Total CRQ" : "Open CRQ"} — Workflow Stage Breakdown
+            {type === "total" ? "Total CRQ" : "Open CRQ"} — Workflow Stage
+            Breakdown
           </Typography>
         </Box>
         <Chip
           label={`${total} across ${data.length} stages`}
           size="small"
-          sx={{ fontSize: 10, fontWeight: 600, bgcolor: `${accentColor}18`, color: accentColor, border: `1px solid ${accentColor}33`, height: 22 }}
+          sx={{
+            fontSize: 10,
+            fontWeight: 600,
+            bgcolor: `${accentColor}18`,
+            color: accentColor,
+            border: `1px solid ${accentColor}33`,
+            height: 22,
+          }}
         />
       </Box>
-      <Box sx={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(140px,1fr))", gap: 1.5 }}>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill,minmax(140px,1fr))",
+          gap: 1.5,
+        }}
+      >
         {data.map((s) => {
           const pct = Math.round((s.count / total) * 100);
           const ratio = s.count / maxVal;
-          const barColor = ratio >= 0.75 ? "#ef4444" : ratio >= 0.5 ? "#f59e0b" : "#3b82f6";
+          const barColor =
+            ratio >= 0.75 ? "#ef4444" : ratio >= 0.5 ? "#f59e0b" : "#3b82f6";
           const isMax = s.count === maxVal;
           return (
             <Box
               key={s.name}
               sx={{
-                background: panelBg, borderRadius: 2, p: 1.5, position: "relative",
+                background: panelBg,
+                borderRadius: 2,
+                p: 1.5,
+                position: "relative",
                 border: `1px solid ${isMax ? `${barColor}44` : isDark ? "rgba(99,130,180,0.12)" : "#e2e8f0"}`,
                 transition: "transform 0.15s ease",
                 "&:hover": { transform: "translateY(-1px)" },
               }}
             >
               {isMax && (
-                <Box sx={{ position: "absolute", top: 6, right: 6, fontSize: 8, color: "#ef4444", bgcolor: "rgba(239,68,68,0.12)", borderRadius: 0.5, px: 0.6, py: 0.1, fontWeight: 700, letterSpacing: "0.05em" }}>
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: 6,
+                    right: 6,
+                    fontSize: 8,
+                    color: "#ef4444",
+                    bgcolor: "rgba(239,68,68,0.12)",
+                    borderRadius: 0.5,
+                    px: 0.6,
+                    py: 0.1,
+                    fontWeight: 700,
+                    letterSpacing: "0.05em",
+                  }}
+                >
                   MAX
                 </Box>
               )}
-              <Typography sx={{ fontSize: 10, color: muted, mb: 0.8, lineHeight: 1.4, pr: isMax ? 4 : 0 }}>{s.name}</Typography>
-              <Typography sx={{ fontSize: 22, fontWeight: 800, color: text, lineHeight: 1 }}>{s.count}</Typography>
-              <Typography sx={{ fontSize: 10, color: muted, mb: 1 }}>{pct}% of total</Typography>
-              <Box sx={{ height: 4, bgcolor: isDark ? "rgba(30,41,59,0.8)" : "#e2e8f0", borderRadius: 2, overflow: "hidden" }}>
-                <Box sx={{ width: `${pct}%`, height: "100%", bgcolor: barColor, borderRadius: 2, transition: "width 0.5s cubic-bezier(0.4,0,0.2,1)" }} />
+              <Typography
+                sx={{
+                  fontSize: 10,
+                  color: muted,
+                  mb: 0.8,
+                  lineHeight: 1.4,
+                  pr: isMax ? 4 : 0,
+                }}
+              >
+                {s.name}
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: 22,
+                  fontWeight: 800,
+                  color: text,
+                  lineHeight: 1,
+                }}
+              >
+                {s.count}
+              </Typography>
+              <Typography sx={{ fontSize: 10, color: muted, mb: 1 }}>
+                {pct}% of total
+              </Typography>
+              <Box
+                sx={{
+                  height: 4,
+                  bgcolor: isDark ? "rgba(30,41,59,0.8)" : "#e2e8f0",
+                  borderRadius: 2,
+                  overflow: "hidden",
+                }}
+              >
+                <Box
+                  sx={{
+                    width: `${pct}%`,
+                    height: "100%",
+                    bgcolor: barColor,
+                    borderRadius: 2,
+                    transition: "width 0.5s cubic-bezier(0.4,0,0.2,1)",
+                  }}
+                />
               </Box>
             </Box>
           );
@@ -539,7 +789,9 @@ const ChartCard: React.FC<ChartCardProps> = ({
             textTransform: "uppercase",
             transition: "all 0.18s",
             "&:hover": {
-              bgcolor: isDark ? "rgba(56,189,248,0.12)" : "rgba(99,102,241,0.08)",
+              bgcolor: isDark
+                ? "rgba(56,189,248,0.12)"
+                : "rgba(99,102,241,0.08)",
             },
           }}
         >
@@ -551,7 +803,10 @@ const ChartCard: React.FC<ChartCardProps> = ({
       <Skeleton
         variant="rectangular"
         height={height}
-        sx={{ borderRadius: 2, bgcolor: isDark ? "rgba(255,255,255,0.04)" : "#f1f5f9" }}
+        sx={{
+          borderRadius: 2,
+          bgcolor: isDark ? "rgba(255,255,255,0.04)" : "#f1f5f9",
+        }}
       />
     ) : (
       <Box sx={{ height }}>{children}</Box>
@@ -568,9 +823,9 @@ interface ChartPopupTableProps {
 }
 
 const STATUS_COLORS: Record<string, { bg: string; text: string }> = {
-  Completed: { bg: "rgba(74,222,128,0.15)",  text: "#4ade80" },
-  Open:      { bg: "rgba(56,189,248,0.15)",  text: "#38bdf8" },
-  Rejected:  { bg: "rgba(248,113,113,0.15)", text: "#f87171" },
+  Completed: { bg: "rgba(74,222,128,0.15)", text: "#4ade80" },
+  Open: { bg: "rgba(56,189,248,0.15)", text: "#38bdf8" },
+  Rejected: { bg: "rgba(248,113,113,0.15)", text: "#f87171" },
 };
 
 const ChartPopupTable: React.FC<ChartPopupTableProps> = ({
@@ -643,7 +898,10 @@ const ChartPopupTable: React.FC<ChartPopupTableProps> = ({
             "&::after": {
               content: '""',
               position: "absolute",
-              bottom: 0, left: 0, right: 0, height: "1px",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: "1px",
               background: isDark
                 ? "linear-gradient(90deg,transparent,rgba(56,189,248,0.3),transparent)"
                 : "linear-gradient(90deg,transparent,rgba(99,102,241,0.2),transparent)",
@@ -651,10 +909,22 @@ const ChartPopupTable: React.FC<ChartPopupTableProps> = ({
           }}
         >
           <Box>
-            <Typography sx={{ fontSize: 13, fontWeight: 700, color: isDark ? "#e2e8f0" : "#1e293b" }}>
+            <Typography
+              sx={{
+                fontSize: 13,
+                fontWeight: 700,
+                color: isDark ? "#e2e8f0" : "#1e293b",
+              }}
+            >
               {cfg.title}
             </Typography>
-            <Typography sx={{ fontSize: 10, color: isDark ? "#64748b" : "#94a3b8", mt: 0.25 }}>
+            <Typography
+              sx={{
+                fontSize: 10,
+                color: isDark ? "#64748b" : "#94a3b8",
+                mt: 0.25,
+              }}
+            >
               Showing {rows.length} records
             </Typography>
           </Box>
@@ -666,7 +936,8 @@ const ChartPopupTable: React.FC<ChartPopupTableProps> = ({
               border: "1px solid rgba(248,113,113,0.3)",
               color: "#f87171",
               borderRadius: 1.5,
-              width: 30, height: 30,
+              width: 30,
+              height: 30,
               "&:hover": { bgcolor: "rgba(248,113,113,0.22)" },
             }}
           >
@@ -686,7 +957,9 @@ const ChartPopupTable: React.FC<ChartPopupTableProps> = ({
                 <TableCell sx={headerCellSx}>Impact</TableCell>
                 <TableCell sx={headerCellSx}>Requester</TableCell>
                 <TableCell sx={headerCellSx}>{cfg.extraCol.label}</TableCell>
-                <TableCell sx={{ ...headerCellSx, minWidth: 220 }}>Summary</TableCell>
+                <TableCell sx={{ ...headerCellSx, minWidth: 220 }}>
+                  Summary
+                </TableCell>
                 <TableCell sx={headerCellSx}>Region</TableCell>
                 <TableCell sx={headerCellSx}>Circle</TableCell>
                 <TableCell sx={headerCellSx}>Bin Group</TableCell>
@@ -702,14 +975,20 @@ const ChartPopupTable: React.FC<ChartPopupTableProps> = ({
                     key={row.changeId}
                     sx={{
                       "&:hover td": {
-                        bgcolor: isDark ? "rgba(56,189,248,0.04)" : "rgba(99,102,241,0.03)",
+                        bgcolor: isDark
+                          ? "rgba(56,189,248,0.04)"
+                          : "rgba(99,102,241,0.03)",
                       },
                     }}
                   >
                     {/* Change ID */}
                     <TableCell sx={bodyCellSx}>
                       <Typography
-                        sx={{ fontSize: 11, fontWeight: 700, color: isDark ? "#38bdf8" : "#3b82f6" }}
+                        sx={{
+                          fontSize: 11,
+                          fontWeight: 700,
+                          color: isDark ? "#38bdf8" : "#3b82f6",
+                        }}
                       >
                         {row.changeId}
                       </Typography>
@@ -738,7 +1017,13 @@ const ChartPopupTable: React.FC<ChartPopupTableProps> = ({
 
                     {/* Aging */}
                     <TableCell sx={bodyCellSx}>
-                      <Typography sx={{ fontSize: 11, fontWeight: 700, color: isDark ? "#e2e8f0" : "#1e293b" }}>
+                      <Typography
+                        sx={{
+                          fontSize: 11,
+                          fontWeight: 700,
+                          color: isDark ? "#e2e8f0" : "#1e293b",
+                        }}
+                      >
                         {row.aging}
                       </Typography>
                     </TableCell>
@@ -774,7 +1059,13 @@ const ChartPopupTable: React.FC<ChartPopupTableProps> = ({
                     <TableCell sx={bodyCellSx}>{row.circle}</TableCell>
 
                     {/* Bin Group */}
-                    <TableCell sx={{ ...bodyCellSx, fontSize: 10, color: isDark ? "#94a3b8" : "#64748b" }}>
+                    <TableCell
+                      sx={{
+                        ...bodyCellSx,
+                        fontSize: 10,
+                        color: isDark ? "#94a3b8" : "#64748b",
+                      }}
+                    >
                       {row.binGroup}
                     </TableCell>
 
@@ -820,15 +1111,32 @@ const CustomTooltip = ({
       }}
     >
       {label && (
-        <Typography sx={{ fontSize: 10, color: isDark ? "#64748b" : "#94a3b8", mb: 0.5 }}>
+        <Typography
+          sx={{ fontSize: 10, color: isDark ? "#64748b" : "#94a3b8", mb: 0.5 }}
+        >
           {label}
         </Typography>
       )}
       {payload.map((p) => (
-        <Box key={p.name} sx={{ display: "flex", alignItems: "center", gap: 0.8, mb: 0.25 }}>
-          <Box sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: p.color }} />
-          <Typography sx={{ fontSize: 11, color: isDark ? "#94a3b8" : "#64748b" }}>{p.name}:</Typography>
-          <Typography sx={{ fontSize: 11, fontWeight: 700, color: isDark ? "#e2e8f0" : "#1e293b" }}>
+        <Box
+          key={p.name}
+          sx={{ display: "flex", alignItems: "center", gap: 0.8, mb: 0.25 }}
+        >
+          <Box
+            sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: p.color }}
+          />
+          <Typography
+            sx={{ fontSize: 11, color: isDark ? "#94a3b8" : "#64748b" }}
+          >
+            {p.name}:
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: 11,
+              fontWeight: 700,
+              color: isDark ? "#e2e8f0" : "#1e293b",
+            }}
+          >
             {p.value}
           </Typography>
         </Box>
@@ -847,9 +1155,11 @@ const CRQAnalyticsMain: React.FC = () => {
   const isDark = theme.palette.mode === "dark";
 
   // ── Filter state ──────────────────────────────────────────────────────────
-  const [startDate, setStartDate] = useState<Dayjs>(() => dayjs().startOf("month"));
-  const [endDate, setEndDate]     = useState<Dayjs>(() => dayjs().endOf("month"));
-  const [filters, setFilters]     = useState<FilterState>({
+  const [startDate, setStartDate] = useState<Dayjs>(() =>
+    dayjs().startOf("month"),
+  );
+  const [endDate, setEndDate] = useState<Dayjs>(() => dayjs().endOf("month"));
+  const [filters, setFilters] = useState<FilterState>({
     function: "All Functions",
     domain: "All Domains",
     subDomain: "All Sub-Domains",
@@ -858,28 +1168,49 @@ const CRQAnalyticsMain: React.FC = () => {
 
   // ── Chart popup state ─────────────────────────────────────────────────────
   const [popupChart, setPopupChart] = useState<ChartPopupType | null>(null);
-  const openPopup  = useCallback((type: ChartPopupType) => setPopupChart(type), []);
+  const openPopup = useCallback(
+    (type: ChartPopupType) => setPopupChart(type),
+    [],
+  );
   const closePopup = useCallback(() => setPopupChart(null), []);
 
   const domainOptions = useMemo(() => {
     if (filters.function === "All Functions") return ["All Domains"];
-    return ["All Domains", ...Object.keys(FUNC_HIERARCHY[filters.function] || {})];
+    return [
+      "All Domains",
+      ...Object.keys(FUNC_HIERARCHY[filters.function] || {}),
+    ];
   }, [filters.function]);
 
   const subDomainOptions = useMemo(() => {
     if (filters.domain === "All Domains") return ["All Sub-Domains"];
-    if (filters.function !== "All Functions" && FUNC_HIERARCHY[filters.function]?.[filters.domain]) {
-      return ["All Sub-Domains", ...FUNC_HIERARCHY[filters.function][filters.domain]];
+    if (
+      filters.function !== "All Functions" &&
+      FUNC_HIERARCHY[filters.function]?.[filters.domain]
+    ) {
+      return [
+        "All Sub-Domains",
+        ...FUNC_HIERARCHY[filters.function][filters.domain],
+      ];
     }
     return ["All Sub-Domains"];
   }, [filters.function, filters.domain]);
 
   const handleFunctionChange = (value: string) => {
-    setFilters((prev) => ({ ...prev, function: value, domain: "All Domains", subDomain: "All Sub-Domains" }));
+    setFilters((prev) => ({
+      ...prev,
+      function: value,
+      domain: "All Domains",
+      subDomain: "All Sub-Domains",
+    }));
   };
 
   const handleDomainChange = (value: string) => {
-    setFilters((prev) => ({ ...prev, domain: value, subDomain: "All Sub-Domains" }));
+    setFilters((prev) => ({
+      ...prev,
+      domain: value,
+      subDomain: "All Sub-Domains",
+    }));
   };
 
   // ── KPI expand state ──────────────────────────────────────────────────────
@@ -895,29 +1226,70 @@ const CRQAnalyticsMain: React.FC = () => {
   });
 
   // ── Resolved data (API → mock fallback) ───────────────────────────────────
-  const workflowStages  = useMemo<CRQWorkflowStage[]>  (() => data?.workflowStages  ?? MOCK_STAGES,          [data]);
-  const slaDomains      = useMemo<CRQSlaDomain[]>      (() => data?.slaDomains      ?? MOCK_SLA_DOMAINS,     [data]);
-  const raisedVsClosed  = useMemo<CRQRaisedVsClosed[]> (() => data?.raisedVsClosed  ?? MOCK_RAISED,          [data]);
-  const bottlenecks     = useMemo<CRQBottleneck[]>     (() => data?.bottlenecks     ?? MOCK_BOTTLENECK,      [data]);
-  const domainSlaChart  = useMemo<CRQDomainSlaChart[]> (() => data?.domainSlaChart  ?? MOCK_DOMAIN_SLA,      [data]);
-  const radarCoverage   = useMemo<CRQRadarCoverage[]>  (() => data?.radarCoverage   ?? MOCK_RADAR_COVERAGE,  [data]);
-  const domainCrqCount  = useMemo<CRQDomainCount[]>    (() => data?.domainCrqCount  ?? MOCK_DOMAIN_CRQ,      [data]);
+  const workflowStages = useMemo<CRQWorkflowStage[]>(
+    () => data?.workflowStages ?? MOCK_STAGES,
+    [data],
+  );
+  const slaDomains = useMemo<CRQSlaDomain[]>(
+    () => data?.slaDomains ?? MOCK_SLA_DOMAINS,
+    [data],
+  );
+  const raisedVsClosed = useMemo<CRQRaisedVsClosed[]>(
+    () => data?.raisedVsClosed ?? MOCK_RAISED,
+    [data],
+  );
+  const bottlenecks = useMemo<CRQBottleneck[]>(
+    () => data?.bottlenecks ?? MOCK_BOTTLENECK,
+    [data],
+  );
+  const domainSlaChart = useMemo<CRQDomainSlaChart[]>(
+    () => data?.domainSlaChart ?? MOCK_DOMAIN_SLA,
+    [data],
+  );
+  const radarCoverage = useMemo<CRQRadarCoverage[]>(
+    () => data?.radarCoverage ?? MOCK_RADAR_COVERAGE,
+    [data],
+  );
+  const domainCrqCount = useMemo<CRQDomainCount[]>(
+    () => data?.domainCrqCount ?? MOCK_DOMAIN_CRQ,
+    [data],
+  );
 
   // ── KPI display values ────────────────────────────────────────────────────
   const kpiValues = useMemo(
     () => ({
-      total:    { value: data?.kpi?.totalCrq   ?? 120,   sub: "All requests",  trend: data?.kpi?.totalTrendPct    ?? 8    },
-      open:     { value: data?.kpi?.openCrq    ?? 48,    sub: "In progress",   trend: data?.kpi?.openTrendPct     ?? -3   },
-      closed:   { value: data?.kpi?.closedCrq  ?? 62,    sub: "Completed",     trend: data?.kpi?.closedTrendPct   ?? 12   },
-      rejected: { value: data?.kpi?.rejected   ?? 10,    sub: "Declined",      trend: data?.kpi?.rejectedTrendPct ?? -2   },
-      sla:      { value: `${data?.kpi?.slaScore ?? 87}%`, sub: "On-time rate", trend: data?.kpi?.slaTrendPct      ?? 1.2  },
+      total: {
+        value: data?.kpi?.totalCrq ?? 120,
+        sub: "All requests",
+        trend: data?.kpi?.totalTrendPct ?? 8,
+      },
+      open: {
+        value: data?.kpi?.openCrq ?? 48,
+        sub: "In progress",
+        trend: data?.kpi?.openTrendPct ?? -3,
+      },
+      closed: {
+        value: data?.kpi?.closedCrq ?? 62,
+        sub: "Completed",
+        trend: data?.kpi?.closedTrendPct ?? 12,
+      },
+      rejected: {
+        value: data?.kpi?.rejected ?? 10,
+        sub: "Declined",
+        trend: data?.kpi?.rejectedTrendPct ?? -2,
+      },
+      sla: {
+        value: `${data?.kpi?.slaScore ?? 87}%`,
+        sub: "On-time rate",
+        trend: data?.kpi?.slaTrendPct ?? 1.2,
+      },
     }),
     [data],
   );
 
   // ── Chart style tokens ────────────────────────────────────────────────────
-  const gridColor    = isDark ? "rgba(99,130,180,0.08)" : "#f1f5f9";
-  const tickColor    = isDark ? "#475569" : "#94a3b8";
+  const gridColor = isDark ? "rgba(99,130,180,0.08)" : "#f1f5f9";
+  const tickColor = isDark ? "#475569" : "#94a3b8";
   const tooltipStyle = {
     background: isDark ? "#0d1b2e" : "#fff",
     border: `1px solid ${isDark ? "#1e3a5f" : "#e2e8f0"}`,
@@ -927,13 +1299,12 @@ const CRQAnalyticsMain: React.FC = () => {
     padding: "8px 12px",
   };
 
-  const text  = isDark ? "#e2e8f0" : "#1e293b";
+  const text = isDark ? "#e2e8f0" : "#1e293b";
   const muted = isDark ? "#64748b" : "#94a3b8";
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Box sx={{ pb: 2 }}>
-
         {/* ── Filter bar ────────────────────────────────────────────────── */}
         <Box
           sx={{
@@ -950,7 +1321,9 @@ const CRQAnalyticsMain: React.FC = () => {
             backdropFilter: "blur(16px)",
             WebkitBackdropFilter: "blur(16px)",
             border: `1px solid ${isDark ? "rgba(255,255,255,0.07)" : "rgba(226,232,240,0.95)"}`,
-            boxShadow: isDark ? "0 4px 20px rgba(0,0,0,0.3)" : "0 2px 10px rgba(0,0,0,0.06)",
+            boxShadow: isDark
+              ? "0 4px 20px rgba(0,0,0,0.3)"
+              : "0 2px 10px rgba(0,0,0,0.06)",
           }}
         >
           <DatePicker
@@ -958,50 +1331,98 @@ const CRQAnalyticsMain: React.FC = () => {
             value={startDate}
             maxDate={endDate}
             onChange={(v) => v && setStartDate(v)}
-            slotProps={{ textField: { size: "small", sx: { minWidth: 148, "& .MuiInputBase-root": { height: 32, fontSize: 12 } } } }}
+            slotProps={{
+              textField: {
+                size: "small",
+                sx: {
+                  minWidth: 148,
+                  "& .MuiInputBase-root": { height: 32, fontSize: 12 },
+                },
+              },
+            }}
           />
           <DatePicker
             label="End Date"
             value={endDate}
             minDate={startDate}
             onChange={(v) => v && setEndDate(v)}
-            slotProps={{ textField: { size: "small", sx: { minWidth: 148, "& .MuiInputBase-root": { height: 32, fontSize: 12 } } } }}
+            slotProps={{
+              textField: {
+                size: "small",
+                sx: {
+                  minWidth: 148,
+                  "& .MuiInputBase-root": { height: 32, fontSize: 12 },
+                },
+              },
+            }}
           />
 
           <Divider orientation="vertical" flexItem sx={{ my: 0.5, mx: 0 }} />
 
-          <Select value={filters.function} onChange={(e) => handleFunctionChange(e.target.value)} sx={{ ...selectSx(isDark), minWidth: 132 }}>
-            {["All Functions", "SE", "CCB"].map((o) => <MenuItem key={o} value={o}>{o}</MenuItem>)}
+          <Select
+            value={filters.function}
+            onChange={(e) => handleFunctionChange(e.target.value)}
+            sx={{ ...selectSx(isDark), minWidth: 132 }}
+          >
+            {["All Functions", "SE", "CCB"].map((o) => (
+              <MenuItem key={o} value={o}>
+                {o}
+              </MenuItem>
+            ))}
           </Select>
 
-          <Select value={filters.domain} onChange={(e) => handleDomainChange(e.target.value)} sx={{ ...selectSx(isDark), minWidth: 132 }}>
-            {domainOptions.map((o) => <MenuItem key={o} value={o}>{o}</MenuItem>)}
+          <Select
+            value={filters.domain}
+            onChange={(e) => handleDomainChange(e.target.value)}
+            sx={{ ...selectSx(isDark), minWidth: 132 }}
+          >
+            {domainOptions.map((o) => (
+              <MenuItem key={o} value={o}>
+                {o}
+              </MenuItem>
+            ))}
           </Select>
 
           <Select
             value={filters.subDomain}
-            onChange={(e) => setFilters((prev) => ({ ...prev, subDomain: e.target.value }))}
+            onChange={(e) =>
+              setFilters((prev) => ({ ...prev, subDomain: e.target.value }))
+            }
             sx={{ ...selectSx(isDark), minWidth: 132 }}
           >
-            {subDomainOptions.map((o) => <MenuItem key={o} value={o}>{o}</MenuItem>)}
+            {subDomainOptions.map((o) => (
+              <MenuItem key={o} value={o}>
+                {o}
+              </MenuItem>
+            ))}
           </Select>
 
           <FormControl size="small">
             <Select
               value={filters.circle}
-              onChange={(e) => setFilters((prev) => ({ ...prev, circle: e.target.value }))}
+              onChange={(e) =>
+                setFilters((prev) => ({ ...prev, circle: e.target.value }))
+              }
               displayEmpty
               sx={{ ...selectSx(isDark), minWidth: 132 }}
             >
-              {CIRCLE_OPTIONS.map((o) => <MenuItem key={o} value={o}>{o}</MenuItem>)}
+              {CIRCLE_OPTIONS.map((o) => (
+                <MenuItem key={o} value={o}>
+                  {o}
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
         </Box>
 
         {/* ── Error banner ──────────────────────────────────────────────── */}
         {isError && (
-          <Alert severity="warning" sx={{ mb: 2, fontSize: 12, borderRadius: 2 }}>
-            API unavailable — showing demo data. Connect <strong>/crq-analytics/dashboard</strong> for live data.
+          <Alert
+            severity="warning"
+            sx={{ mb: 2, fontSize: 12, borderRadius: 2 }}
+          >
+            API unavailable — showing demo data. Connect{" "}
+            <strong>/crq-analytics/dashboard</strong> for live data.
           </Alert>
         )}
 
@@ -1009,7 +1430,11 @@ const CRQAnalyticsMain: React.FC = () => {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: { xs: "1fr 1fr", sm: "repeat(3,1fr)", md: "repeat(5,1fr)" },
+            gridTemplateColumns: {
+              xs: "1fr 1fr",
+              sm: "repeat(3,1fr)",
+              md: "repeat(5,1fr)",
+            },
             gap: 1.5,
             mb: 1.5,
           }}
@@ -1034,16 +1459,32 @@ const CRQAnalyticsMain: React.FC = () => {
         {/* ── Expandable KPI panel ───────────────────────────────────────── */}
         <Collapse in={activePanel !== null} unmountOnExit>
           {(activePanel === "total" || activePanel === "open") && (
-            <WorkflowExpandPanel type={activePanel} stages={workflowStages} slaDomains={slaDomains} isDark={isDark} />
+            <WorkflowExpandPanel
+              type={activePanel}
+              stages={workflowStages}
+              slaDomains={slaDomains}
+              isDark={isDark}
+            />
           )}
           {activePanel === "sla" && (
-            <WorkflowExpandPanel type="sla" stages={workflowStages} slaDomains={slaDomains} isDark={isDark} />
+            <WorkflowExpandPanel
+              type="sla"
+              stages={workflowStages}
+              slaDomains={slaDomains}
+              isDark={isDark}
+            />
           )}
         </Collapse>
 
         {/* ── Row 1: Area + Bottleneck + Domain SLA ─────────────────────── */}
-        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr 1fr" }, gap: 1.5, mb: 1.5 }}>
-
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", md: "1fr 1fr 1fr" },
+            gap: 1.5,
+            mb: 1.5,
+          }}
+        >
           {/* Raised vs Closed */}
           <ChartCard
             title="CRQ RAISED VS CLOSED"
@@ -1052,24 +1493,59 @@ const CRQAnalyticsMain: React.FC = () => {
             onTitleClick={() => openPopup("raised")}
           >
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={raisedVsClosed} margin={{ top: 8, right: 8, bottom: 0, left: -24 }}>
+              <AreaChart
+                data={raisedVsClosed}
+                margin={{ top: 8, right: 8, bottom: 0, left: -24 }}
+              >
                 <defs>
                   <linearGradient id="grRaised" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%"  stopColor="#38bdf8" stopOpacity={0.35} />
+                    <stop offset="5%" stopColor="#38bdf8" stopOpacity={0.35} />
                     <stop offset="95%" stopColor="#38bdf8" stopOpacity={0} />
                   </linearGradient>
                   <linearGradient id="grClosed" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%"  stopColor="#4ade80" stopOpacity={0.35} />
+                    <stop offset="5%" stopColor="#4ade80" stopOpacity={0.35} />
                     <stop offset="95%" stopColor="#4ade80" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
-                <XAxis dataKey="label" tick={{ fontSize: 9, fill: tickColor }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 9, fill: tickColor }} axisLine={false} tickLine={false} />
+                <XAxis
+                  dataKey="label"
+                  tick={{ fontSize: 9, fill: tickColor }}
+                  axisLine={false}
+                  tickLine={false}
+                />
+                <YAxis
+                  tick={{ fontSize: 9, fill: tickColor }}
+                  axisLine={false}
+                  tickLine={false}
+                />
                 <RTooltip contentStyle={tooltipStyle} />
-                <Legend wrapperStyle={{ fontSize: 10, paddingTop: 6 }} formatter={(v) => <span style={{ color: tickColor }}>{v}</span>} />
-                <Area type="monotone" dataKey="raised" stroke="#38bdf8" strokeWidth={2} fill="url(#grRaised)" dot={{ r: 3, fill: "#38bdf8", strokeWidth: 0 }} activeDot={{ r: 5 }} name="Raised" />
-                <Area type="monotone" dataKey="closed" stroke="#4ade80" strokeWidth={2} fill="url(#grClosed)" dot={{ r: 3, fill: "#4ade80", strokeWidth: 0 }} activeDot={{ r: 5 }} name="Closed" />
+                <Legend
+                  wrapperStyle={{ fontSize: 10, paddingTop: 6 }}
+                  formatter={(v) => (
+                    <span style={{ color: tickColor }}>{v}</span>
+                  )}
+                />
+                <Area
+                  type="monotone"
+                  dataKey="raised"
+                  stroke="#38bdf8"
+                  strokeWidth={2}
+                  fill="url(#grRaised)"
+                  dot={{ r: 3, fill: "#38bdf8", strokeWidth: 0 }}
+                  activeDot={{ r: 5 }}
+                  name="Raised"
+                />
+                <Area
+                  type="monotone"
+                  dataKey="closed"
+                  stroke="#4ade80"
+                  strokeWidth={2}
+                  fill="url(#grClosed)"
+                  dot={{ r: 3, fill: "#4ade80", strokeWidth: 0 }}
+                  activeDot={{ r: 5 }}
+                  name="Closed"
+                />
               </AreaChart>
             </ResponsiveContainer>
           </ChartCard>
@@ -1082,14 +1558,49 @@ const CRQAnalyticsMain: React.FC = () => {
             onTitleClick={() => openPopup("bottleneck")}
           >
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={bottlenecks} layout="vertical" margin={{ top: 4, right: 24, bottom: 0, left: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke={gridColor} horizontal={false} />
-                <XAxis type="number" tick={{ fontSize: 9, fill: tickColor }} axisLine={false} tickLine={false} unit="h" />
-                <YAxis dataKey="stage" type="category" tick={{ fontSize: 9, fill: tickColor }} axisLine={false} tickLine={false} width={88} />
-                <RTooltip contentStyle={tooltipStyle} formatter={(v: number) => [`${v}h`, "Avg Wait"]} />
-                <Bar dataKey="avgWaitHours" radius={[0, 4, 4, 0]} maxBarSize={18}>
+              <BarChart
+                data={bottlenecks}
+                layout="vertical"
+                margin={{ top: 4, right: 24, bottom: 0, left: 0 }}
+              >
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  stroke={gridColor}
+                  horizontal={false}
+                />
+                <XAxis
+                  type="number"
+                  tick={{ fontSize: 9, fill: tickColor }}
+                  axisLine={false}
+                  tickLine={false}
+                  unit="h"
+                />
+                <YAxis
+                  dataKey="stage"
+                  type="category"
+                  tick={{ fontSize: 9, fill: tickColor }}
+                  axisLine={false}
+                  tickLine={false}
+                  width={88}
+                />
+                <RTooltip
+                  contentStyle={tooltipStyle}
+                  formatter={(v: number) => [`${v}h`, "Avg Wait"]}
+                />
+                <Bar
+                  dataKey="avgWaitHours"
+                  radius={[0, 4, 4, 0]}
+                  maxBarSize={18}
+                >
                   {bottlenecks.map((_, i) => (
-                    <Cell key={i} fill={BOTTLENECK_PALETTE[Math.min(i, BOTTLENECK_PALETTE.length - 1)]} />
+                    <Cell
+                      key={i}
+                      fill={
+                        BOTTLENECK_PALETTE[
+                          Math.min(i, BOTTLENECK_PALETTE.length - 1)
+                        ]
+                      }
+                    />
                   ))}
                 </Bar>
               </BarChart>
@@ -1104,13 +1615,32 @@ const CRQAnalyticsMain: React.FC = () => {
             onTitleClick={() => openPopup("domainsla")}
           >
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={domainSlaChart} margin={{ top: 8, right: 8, bottom: 0, left: -24 }}>
+              <BarChart
+                data={domainSlaChart}
+                margin={{ top: 8, right: 8, bottom: 0, left: -24 }}
+              >
                 <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
-                <XAxis dataKey="domain" tick={{ fontSize: 9, fill: tickColor }} axisLine={false} tickLine={false} />
-                <YAxis domain={[60, 100]} tick={{ fontSize: 9, fill: tickColor }} axisLine={false} tickLine={false} unit="%" />
-                <RTooltip contentStyle={tooltipStyle} formatter={(v: number) => [`${v}%`, "SLA Score"]} />
+                <XAxis
+                  dataKey="domain"
+                  tick={{ fontSize: 9, fill: tickColor }}
+                  axisLine={false}
+                  tickLine={false}
+                />
+                <YAxis
+                  domain={[60, 100]}
+                  tick={{ fontSize: 9, fill: tickColor }}
+                  axisLine={false}
+                  tickLine={false}
+                  unit="%"
+                />
+                <RTooltip
+                  contentStyle={tooltipStyle}
+                  formatter={(v: number) => [`${v}%`, "SLA Score"]}
+                />
                 <Bar dataKey="score" radius={[4, 4, 0, 0]} maxBarSize={28}>
-                  {domainSlaChart.map((d, i) => <Cell key={i} fill={slaColor(d.score).bar} />)}
+                  {domainSlaChart.map((d, i) => (
+                    <Cell key={i} fill={slaColor(d.score).bar} />
+                  ))}
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
@@ -1118,8 +1648,13 @@ const CRQAnalyticsMain: React.FC = () => {
         </Box>
 
         {/* ── Row 2: Radar + Domain CRQ count ───────────────────────────── */}
-        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 1.5 }}>
-
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
+            gap: 1.5,
+          }}
+        >
           {/* Radar */}
           <ChartCard
             title="DOMAIN COVERAGE RADAR"
@@ -1129,10 +1664,21 @@ const CRQAnalyticsMain: React.FC = () => {
             onTitleClick={() => openPopup("radar")}
           >
             <ResponsiveContainer width="100%" height="100%">
-              <RadarChart data={radarCoverage} margin={{ top: 12, right: 24, bottom: 12, left: 24 }}>
+              <RadarChart
+                data={radarCoverage}
+                margin={{ top: 12, right: 24, bottom: 12, left: 24 }}
+              >
                 <PolarGrid stroke={gridColor} />
-                <PolarAngleAxis dataKey="subject" tick={{ fontSize: 10, fill: tickColor }} />
-                <PolarRadiusAxis angle={90} domain={[0, 100]} tick={{ fontSize: 8, fill: tickColor }} tickCount={4} />
+                <PolarAngleAxis
+                  dataKey="subject"
+                  tick={{ fontSize: 10, fill: tickColor }}
+                />
+                <PolarRadiusAxis
+                  angle={90}
+                  domain={[0, 100]}
+                  tick={{ fontSize: 8, fill: tickColor }}
+                  tickCount={4}
+                />
                 <Radar
                   name="Coverage"
                   dataKey="value"
@@ -1157,13 +1703,33 @@ const CRQAnalyticsMain: React.FC = () => {
             onTitleClick={() => openPopup("domaincrq")}
           >
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={domainCrqCount} margin={{ top: 8, right: 8, bottom: 0, left: -20 }}>
+              <BarChart
+                data={domainCrqCount}
+                margin={{ top: 8, right: 8, bottom: 0, left: -20 }}
+              >
                 <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
-                <XAxis dataKey="domain" tick={{ fontSize: 9, fill: tickColor }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 9, fill: tickColor }} axisLine={false} tickLine={false} />
-                <RTooltip contentStyle={tooltipStyle} formatter={(v: number) => [v, "CRQ Count"]} />
+                <XAxis
+                  dataKey="domain"
+                  tick={{ fontSize: 9, fill: tickColor }}
+                  axisLine={false}
+                  tickLine={false}
+                />
+                <YAxis
+                  tick={{ fontSize: 9, fill: tickColor }}
+                  axisLine={false}
+                  tickLine={false}
+                />
+                <RTooltip
+                  contentStyle={tooltipStyle}
+                  formatter={(v: number) => [v, "CRQ Count"]}
+                />
                 <Bar dataKey="count" radius={[4, 4, 0, 0]} maxBarSize={32}>
-                  {domainCrqCount.map((_, i) => <Cell key={i} fill={DOMAIN_PALETTE[i % DOMAIN_PALETTE.length]} />)}
+                  {domainCrqCount.map((_, i) => (
+                    <Cell
+                      key={i}
+                      fill={DOMAIN_PALETTE[i % DOMAIN_PALETTE.length]}
+                    />
+                  ))}
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
@@ -1171,15 +1737,30 @@ const CRQAnalyticsMain: React.FC = () => {
         </Box>
 
         {/* ── Footer ────────────────────────────────────────────────────── */}
-        <Box sx={{ mt: 2.5, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <Box
+          sx={{
+            mt: 2.5,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
           <Typography sx={{ fontSize: 10, color: muted }}>
             Filtered:{" "}
             <Box component="span" sx={{ color: text, fontWeight: 600 }}>
-              {startDate.format("DD MMM YYYY")} → {endDate.format("DD MMM YYYY")}
+              {startDate.format("DD MMM YYYY")} →{" "}
+              {endDate.format("DD MMM YYYY")}
             </Box>
           </Typography>
           <Box sx={{ display: "flex", alignItems: "center", gap: 0.8 }}>
-            <Box sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: data ? "#22c55e" : "#f59e0b" }} />
+            <Box
+              sx={{
+                width: 6,
+                height: 6,
+                borderRadius: "50%",
+                bgcolor: data ? "#22c55e" : "#f59e0b",
+              }}
+            />
             <Typography sx={{ fontSize: 10, color: muted }}>
               {data ? "Live API data" : "Demo data — API offline"}
             </Typography>
@@ -1193,7 +1774,6 @@ const CRQAnalyticsMain: React.FC = () => {
           chartType={popupChart}
           isDark={isDark}
         />
-
       </Box>
     </LocalizationProvider>
   );
@@ -1204,19 +1784,19 @@ export default CRQAnalyticsMain;
 // ─── Hierarchy + Circle constants ─────────────────────────────────────────────
 const FUNC_HIERARCHY: Record<string, Record<string, string[]>> = {
   SE: {
-    "IP Core":              ["MPLS-Core", "BRAS-Core", "CEN-Core"],
-    Packet:                 ["Packet-Change", "Packet_NI"],
-    "Embedded Support":     ["All"],
-    "IP Access":            ["MPLS-Access", "CEN-Access", "OLT Access"],
-    Optics:                 ["Network_expansion", "NNI", "OTN/LCD", "Project"],
+    "IP Core": ["MPLS-Core", "BRAS-Core", "CEN-Core"],
+    Packet: ["Packet-Change", "Packet_NI"],
+    "Embedded Support": ["All"],
+    "IP Access": ["MPLS-Access", "CEN-Access", "OLT Access"],
+    Optics: ["Network_expansion", "NNI", "OTN/LCD", "Project"],
     "Service Optimisation": ["All"],
   },
   CCB: {
-    "IP Core_CCB":              ["MPLS-Core_CCB", "BRAS-Core_CCB", "CEN-Core_CCB"],
-    Packet_CCB:                 ["Packet-Change_CCB", "Packet_NI_CCB"],
-    "Embedded Support_CCB":     ["All"],
-    "IP Access_CCB":            ["MPLS-Access_CCB", "CEN-Access_CCB", "OLT Access_CCB"],
-    Optics_CCB:                 ["Network_expansion_CCB", "Project_CCB"],
+    "IP Core_CCB": ["MPLS-Core_CCB", "BRAS-Core_CCB", "CEN-Core_CCB"],
+    Packet_CCB: ["Packet-Change_CCB", "Packet_NI_CCB"],
+    "Embedded Support_CCB": ["All"],
+    "IP Access_CCB": ["MPLS-Access_CCB", "CEN-Access_CCB", "OLT Access_CCB"],
+    Optics_CCB: ["Network_expansion_CCB", "Project_CCB"],
     "Service Optimisation_CCB": ["All"],
   },
 };
