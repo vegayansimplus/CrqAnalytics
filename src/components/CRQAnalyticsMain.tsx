@@ -1044,7 +1044,7 @@ const CRQAnalyticsMain: React.FC = () => {
         </Box>
 
         {/* ── Row 2: Open CRQ Domain Wise Analysis + Run Rate ────────────── */}
-        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 1.5, mb: 1.5 }}>
+        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr 1fr" }, gap: 1.5, mb: 1.5 }}>
 
           {/* ── OPEN CRQ DOMAIN WISE (CCB + SE only — CCBV removed) ─────── */}
           {/* NOTE: Original DOMAIN WISE CRQ ANALYSIS code below is commented out — do not remove */}
