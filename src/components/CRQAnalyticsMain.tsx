@@ -1525,7 +1525,7 @@ const CRQAnalyticsMain: React.FC = () => {
         
 
         {/* ── Row 3 (below Run Rate): Rejection Reasons Bar + Pie side-by-side ── */}
-        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 1.5, mb: 1.5 }}>
+        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr 1fr" }, gap: 1.5, mb: 1.5 }}>
 
           {/* Analytics Reason For Cancellation/Rejection — full bar chart (top 4) */}
           <Box sx={panelSx(isDark)}>
@@ -1652,10 +1652,12 @@ const CRQAnalyticsMain: React.FC = () => {
               ))}
             </Box>
           </Box>
-        </Box>
 
         {/* ── CRQ Aging Heatmap + (below Run Rate: CCB TO SE chart) ────────── */}
         <CRQAgingHeatmap isDark={isDark} onViewAll={() => openPopup("agingheatmap")} />
+        </Box>
+
+
 
         {/* ── Footer ────────────────────────────────────────────────────── */}
         <Box
