@@ -9,6 +9,7 @@ import type {
   CRQRadarCoverage,
   CRQDomainCount,
   CRQTableRow,
+  CRQRunRate,
 } from "./crqAnalytics.api";
 
 export const kpiCards = [
@@ -108,12 +109,12 @@ export const bottlenecks: CRQBottleneck[] = [
 ];
 
 export const domainSlaChart: CRQDomainSlaChart[] = [
-  { domain: "Core",    score: 92 },
-  { domain: "Access",  score: 85 },
-  { domain: "Trans.",  score: 78 },
-  { domain: "IP/MPLS", score: 95 },
-  { domain: "Tx",      score: 82 },
-  { domain: "Ent.",    score: 89 },
+  { domain: "IP Core",    score: 92 },
+  { domain: "Packet",  score: 85 },
+  { domain: "Embedded Support",  score: 78 },
+  { domain: "IP Access", score: 95 },
+  { domain: "Optics",      score: 82 },
+  { domain: "Service Optimisation",    score: 89 },
 ];
 
 export const radarData: { labels: string[]; values: number[] } = {
@@ -158,6 +159,62 @@ export const chartTableRows: CRQTableRow[] = [
   { changeId: "CRQ#81162", submitDate: "2026-03-02", status: "Open",      aging: "2d",  impact: "NSA", requester: "Planning",  summary: "IP access MPLS-Access node firmware upgrade",                   region: "West",  circle: "Maharashtra",     binGroup: "TX_ACCESS",       coordinator: "Deepa Rao",    implementor: "Vikram R"  },
   { changeId: "CRQ#81163", submitDate: "2026-02-12", status: "Completed", aging: "10d", impact: "SA",  requester: "NOC",       summary: "Optics NNI capacity upgrade — inter-circle link",               region: "North", circle: "Haryana",         binGroup: "TX_NNI",          coordinator: "Amit Patel",   implementor: "Priya S"   },
 ];
+
+
+export const runRateCCBtoSE: CRQRunRate[] = [
+  { date: "01-Feb-26", receivedInCCB: 2,  movedToSE: 1,  seToClosed: 1  },
+  { date: "02-Feb-26", receivedInCCB: 4,  movedToSE: 2,  seToClosed: 1  },
+  { date: "03-Feb-26", receivedInCCB: 3,  movedToSE: 4,  seToClosed: 3  },
+  { date: "04-Feb-26", receivedInCCB: 4,  movedToSE: 3,  seToClosed: 1  },
+  { date: "05-Feb-26", receivedInCCB: 8,  movedToSE: 2,  seToClosed: 1  },
+  { date: "06-Feb-26", receivedInCCB: 7,  movedToSE: 7,  seToClosed: 4  },
+  { date: "07-Feb-26", receivedInCCB: 6,  movedToSE: 6,  seToClosed: 9  },
+  { date: "08-Feb-26", receivedInCCB: 9,  movedToSE: 8,  seToClosed: 8  },
+  { date: "09-Feb-26", receivedInCCB: 3,  movedToSE: 5,  seToClosed: 1  },
+  { date: "10-Feb-26", receivedInCCB: 7,  movedToSE: 2,  seToClosed: 1  },
+  { date: "11-Feb-26", receivedInCCB: 4,  movedToSE: 6,  seToClosed: 4  },
+  { date: "12-Feb-26", receivedInCCB: 3,  movedToSE: 3,  seToClosed: 3  },
+  { date: "13-Feb-26", receivedInCCB: 2,  movedToSE: 4,  seToClosed: 0  },
+  { date: "14-Feb-26", receivedInCCB: 2,  movedToSE: 8,  seToClosed: 7  },
+  { date: "15-Feb-26", receivedInCCB: 1,  movedToSE: 2,  seToClosed: 1  },
+  { date: "16-Feb-26", receivedInCCB: 1,  movedToSE: 1,  seToClosed: 1  },
+  { date: "18-Feb-26", receivedInCCB: 6,  movedToSE: 3,  seToClosed: 1  },
+  { date: "19-Feb-26", receivedInCCB: 5,  movedToSE: 2,  seToClosed: 1  },
+  { date: "20-Feb-26", receivedInCCB: 8,  movedToSE: 7,  seToClosed: 3  },
+  { date: "21-Feb-26", receivedInCCB: 7,  movedToSE: 8,  seToClosed: 0  },
+  { date: "22-Feb-26", receivedInCCB: 5,  movedToSE: 6,  seToClosed: 4  },
+  { date: "24-Feb-26", receivedInCCB: 8,  movedToSE: 5,  seToClosed: 6  },
+  { date: "25-Feb-26", receivedInCCB: 9,  movedToSE: 8,  seToClosed: 7  },
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // // ─── Static mock data for CRQ Analytics Dashboard ───────────────────────────
 // // Exported shapes match the API response interfaces 1-to-1 so the component
