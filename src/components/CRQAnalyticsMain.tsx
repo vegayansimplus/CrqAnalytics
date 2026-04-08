@@ -114,65 +114,65 @@ const BOTTLENECK_PALETTE = [
 
 // ─── Site Group mock data ─────────────────────────────────────────────────────
 const SITE_GROUP_DATA = [
-  { group: "AP", raised: 1483, rejected: 93, closed: 717 },
-  { group: "BH", raised: 990, rejected: 85, closed: 433 },
-  { group: "GJ", raised: 973, rejected: 66, closed: 406 },
-  { group: "HPHP", raised: 1347, rejected: 72, closed: 613 },
-  { group: "J&K", raised: 340, rejected: 18, closed: 145 },
-  { group: "JH", raised: 348, rejected: 34, closed: 144 },
-  { group: "KK", raised: 1140, rejected: 73, closed: 513 },
-  { group: "KL", raised: 337, rejected: 20, closed: 178 },
-  { group: "MPCG", raised: 1166, rejected: 126, closed: 516 },
-  { group: "MUM", raised: 561, rejected: 13, closed: 285 },
-  { group: "NCR", raised: 998, rejected: 40, closed: 452 },
-  { group: "NESA", raised: 577, rejected: 38, closed: 247 },
-  { group: "OR", raised: 495, rejected: 35, closed: 240 },
-  { group: "Other", raised: 4008, rejected: 319, closed: 1716 },
-  { group: "RAJ", raised: 1043, rejected: 88, closed: 442 },
-  { group: "ROM", raised: 1050, rejected: 84, closed: 438 },
-  { group: "TN", raised: 2409, rejected: 96, closed: 1310 },
+  { group: "AP",   raised: 1483, rejected: 93,  closed: 717  },
+  { group: "BH",   raised: 990,  rejected: 85,  closed: 433  },
+  { group: "GJ",   raised: 973,  rejected: 66,  closed: 406  },
+  { group: "HPHP", raised: 1347, rejected: 72,  closed: 613  },
+  { group: "J&K",  raised: 340,  rejected: 18,  closed: 145  },
+  { group: "JH",   raised: 348,  rejected: 34,  closed: 144  },
+  { group: "KK",   raised: 1140, rejected: 73,  closed: 513  },
+  // { group: "KL",   raised: 337,  rejected: 20,  closed: 178  },
+  // { group: "MPCG", raised: 1166, rejected: 126, closed: 516  },
+  // { group: "MUM",  raised: 561,  rejected: 13,  closed: 285  },
+  // { group: "NCR",  raised: 998,  rejected: 40,  closed: 452  },
+  // { group: "NESA", raised: 577,  rejected: 38,  closed: 247  },
+  // { group: "OR",   raised: 495,  rejected: 35,  closed: 240  },
+  // { group: "Other",raised: 4008, rejected: 319, closed: 1716 },
+  // { group: "RAJ",  raised: 1043, rejected: 88,  closed: 442  },
+  // { group: "ROM",  raised: 1050, rejected: 84,  closed: 438  },
+  // { group: "TN",   raised: 2409, rejected: 96,  closed: 1310 },
 ];
 
 // ─── Rejection Reason mock data ───────────────────────────────────────────────
 const REJECTION_REASONS_ALL = [
-  { reason: "AT Banner not removed", count: 500, pct: 5 },
-  { reason: "Time Constraint", count: 470, pct: 5 },
-  { reason: "Time Constraint- NOC", count: 440, pct: 5 },
-  { reason: "Time Constraint- Ops/Deployment", count: 410, pct: 4 },
-  { reason: "MOP Issue", count: 380, pct: 4 },
-  { reason: "Wrong Flow/BIN/Details in CRQ", count: 350, pct: 4 },
-  { reason: "Network Issue (Server/IT)", count: 330, pct: 3 },
-  { reason: "CYGNET task not in NOC-SE Bin", count: 290, pct: 3 },
-  { reason: "Cancelled due to Wrong Type of CR", count: 260, pct: 3 },
-  { reason: "Commissioning Sheet not available", count: 230, pct: 2 },
-  { reason: "Node reachability issue", count: 200, pct: 2 },
-  { reason: "No response from OEM", count: 170, pct: 2 },
-  { reason: "Customer/Services live in OLT", count: 140, pct: 1 },
-  { reason: "Plan Issue", count: 110, pct: 1 },
-  { reason: "Pre Check failed- Network", count: 80, pct: 1 },
-  { reason: "Pre Check Failed- Planning", count: 50, pct: 1 },
-  { reason: "Redundancy Failure", count: 20, pct: 0 },
-  { reason: "Site Access Issue", count: 10, pct: 0 },
+  { reason: "AT Banner not removed",            count: 500, pct: 5 },
+  { reason: "Time Constraint",                  count: 470, pct: 5 },
+  { reason: "Time Constraint- NOC",             count: 440, pct: 5 },
+  { reason: "Time Constraint- Ops/Deployment",  count: 410, pct: 4 },
+  { reason: "MOP Issue",                        count: 380, pct: 4 },
+  { reason: "Wrong Flow/BIN/Details in CRQ",   count: 350, pct: 4 },
+  { reason: "Network Issue (Server/IT)",        count: 330, pct: 3 },
+  { reason: "CYGNET task not in NOC-SE Bin",    count: 290, pct: 3 },
+  { reason: "Cancelled due to Wrong Type of CR",count: 260, pct: 3 },
+  { reason: "Commissioning Sheet not available",count: 230, pct: 2 },
+  { reason: "Node reachability issue",          count: 200, pct: 2 },
+  { reason: "No response from OEM",             count: 170, pct: 2 },
+  { reason: "Customer/Services live in OLT",    count: 140, pct: 1 },
+  { reason: "Plan Issue",                       count: 110, pct: 1 },
+  { reason: "Pre Check failed- Network",        count: 80,  pct: 1 },
+  { reason: "Pre Check Failed- Planning",       count: 50,  pct: 1 },
+  { reason: "Redundancy Failure",               count: 20,  pct: 0 },
+  { reason: "Site Access Issue",                count: 10,  pct: 0 },
 ];
 const TOP4_REJECTION_REASONS = REJECTION_REASONS_ALL.slice(0, 4);
 
 // ─── CRQ Aging Heatmap data ───────────────────────────────────────────────────
 const AGING_HEATMAP_DATA = [
-  { bucket: "<2 Days", ccb: 986, se: 622 },
-  { bucket: "2-4 Days", ccb: 408, se: 580 },
-  { bucket: "4-6 Days", ccb: 163, se: 226 },
-  { bucket: "6-8 Days", ccb: 259, se: 397 },
-  { bucket: ">8 Days", ccb: 1012, se: 1821 },
+  { bucket: "<2 Days",  ccb: 986,  se: 622  },
+  { bucket: "2-4 Days", ccb: 408,  se: 580  },
+  { bucket: "4-6 Days", ccb: 163,  se: 226  },
+  { bucket: "6-8 Days", ccb: 259,  se: 397  },
+  { bucket: ">8 Days",  ccb: 1012, se: 1821 },
 ];
 
 // ─── Open CRQ Domain Wise data (CCB + SE only, no CCBV) ──────────────────────
 const OPEN_CRQ_DOMAIN_DATA = [
-  { domain: "IP Core", ccb: 750, se: 1000 },
-  { domain: "Embedded Support", ccb: 550, se: 600 },
-  { domain: "IP Access", ccb: 500, se: 400 },
-  { domain: "Optics", ccb: 500, se: 400 },
-  { domain: "Service Optimisation", ccb: 450, se: 180 },
-  { domain: "Packet", ccb: 400, se: 150 },
+  { domain: "IP Core",    ccb: 750,  se: 1000 },
+  { domain: "Embedded Support",      ccb: 550,  se: 600  },
+  { domain: "IP Access",   ccb: 500,  se: 400  },
+  { domain: "Optics",           ccb: 500,  se: 400  },
+  { domain: "Service Optimisation",     ccb: 450,  se: 180  },
+  { domain: "Packet",    ccb: 400,  se: 150  },
   // { domain: "Svc Migration",    ccb: 400,  se: 150  },
   // { domain: "Embedded",         ccb: 300,  se: 200  },
   // { domain: "IP Access-OLT",    ccb: 350,  se: 100  },
@@ -326,7 +326,7 @@ const CHART_POPUP_CONFIGS: Record<
       key: "runRateStage",
       label: "Stage",
       getValue: (_r, i) =>
-        ["CCB", "SE", "Closed", "CCB", "SE", "Closed", "CCB", "SE", "Closed", "CCB", "SE", "Closed", "CCB", "SE", "Closed", "CCB", "SE", "Closed", "CCB", "SE"][i % 20],
+        ["CCB","SE","Closed","CCB","SE","Closed","CCB","SE","Closed","CCB","SE","Closed","CCB","SE","Closed","CCB","SE","Closed","CCB","SE"][i % 20],
     },
   },
   // ── NEW: Site Group popup config ──────────────────────────────────────────
@@ -336,7 +336,7 @@ const CHART_POPUP_CONFIGS: Record<
       key: "siteGroup",
       label: "Site Group",
       getValue: (_r, i) =>
-        ["AP", "BH", "GJ", "HPHP", "J&K", "JH", "KK", "KL", "MPCG", "MUM", "NCR", "NESA", "OR", "Other", "RAJ", "ROM", "TN", "AP", "BH", "GJ"][i % 20],
+        ["AP","BH","GJ","HPHP","J&K","JH","KK","KL","MPCG","MUM","NCR","NESA","OR","Other","RAJ","ROM","TN","AP","BH","GJ"][i % 20],
     },
   },
   // ── NEW: Rejection Reason popup config ───────────────────────────────────
@@ -346,7 +346,7 @@ const CHART_POPUP_CONFIGS: Record<
       key: "rejectionReason",
       label: "Rejection Reason",
       getValue: (_r, i) =>
-        ["AT Banner not removed", "Time Constraint", "Time Constraint- NOC", "Time Constraint- Ops/Deployment", "MOP Issue", "Wrong Flow/BIN", "Network Issue", "CYGNET task", "Wrong Type of CR", "Commissioning Sheet", "AT Banner not removed", "Time Constraint", "Time Constraint- NOC", "Time Constraint- Ops/Deployment", "MOP Issue", "Wrong Flow/BIN", "Network Issue", "CYGNET task", "Wrong Type of CR", "Commissioning Sheet"][i % 20],
+        ["AT Banner not removed","Time Constraint","Time Constraint- NOC","Time Constraint- Ops/Deployment","MOP Issue","Wrong Flow/BIN","Network Issue","CYGNET task","Wrong Type of CR","Commissioning Sheet","AT Banner not removed","Time Constraint","Time Constraint- NOC","Time Constraint- Ops/Deployment","MOP Issue","Wrong Flow/BIN","Network Issue","CYGNET task","Wrong Type of CR","Commissioning Sheet"][i % 20],
     },
   },
   // ── NEW: Aging Heatmap popup config ──────────────────────────────────────
@@ -356,7 +356,7 @@ const CHART_POPUP_CONFIGS: Record<
       key: "agingBucket",
       label: "Aging Bucket",
       getValue: (_r, i) =>
-        ["<2 Days", "2-4 Days", "4-6 Days", "6-8 Days", ">8 Days", "<2 Days", "2-4 Days", "4-6 Days", "6-8 Days", ">8 Days", "<2 Days", "2-4 Days", "4-6 Days", "6-8 Days", ">8 Days", "<2 Days", "2-4 Days", "4-6 Days", "6-8 Days", ">8 Days"][i % 20],
+        ["<2 Days","2-4 Days","4-6 Days","6-8 Days",">8 Days","<2 Days","2-4 Days","4-6 Days","6-8 Days",">8 Days","<2 Days","2-4 Days","4-6 Days","6-8 Days",">8 Days","<2 Days","2-4 Days","4-6 Days","6-8 Days",">8 Days"][i % 20],
     },
   },
 };
@@ -417,11 +417,11 @@ const selectSx = (isDark: boolean): SxProps<Theme> => ({
 
 // ─── KPI config ───────────────────────────────────────────────────────────────
 const KPI_CFG = [
-  { id: "total", label: "Total CRQ", icon: "📊", color: "#38bdf8", iconBg: "rgba(56,189,248,0.15)", expandable: true },
-  { id: "open", label: "Open CRQ", icon: "🔓", color: "#fb923c", iconBg: "rgba(251,146,60,0.15)", expandable: true },
-  { id: "closed", label: "Closed CRQ", icon: "✅", color: "#4ade80", iconBg: "rgba(74,222,128,0.15)", expandable: false },
-  { id: "rejected", label: "Rejected", icon: "❌", color: "#f87171", iconBg: "rgba(248,113,113,0.15)", expandable: false },
-  { id: "sla", label: "SLA Score", icon: "🎯", color: "#8b5cf6", iconBg: "rgba(139,92,246,0.15)", expandable: true },
+  { id: "total",    label: "Total CRQ",   icon: "📊", color: "#38bdf8", iconBg: "rgba(56,189,248,0.15)",  expandable: true  },
+  { id: "open",     label: "Open CRQ",    icon: "🔓", color: "#fb923c", iconBg: "rgba(251,146,60,0.15)",  expandable: true  },
+  { id: "closed",   label: "Closed CRQ",  icon: "✅", color: "#4ade80", iconBg: "rgba(74,222,128,0.15)",  expandable: false },
+  { id: "rejected", label: "Rejected",    icon: "❌", color: "#f87171", iconBg: "rgba(248,113,113,0.15)", expandable: false },
+  { id: "sla",      label: "SLA Score",   icon: "🎯", color: "#8b5cf6", iconBg: "rgba(139,92,246,0.15)",  expandable: true  },
 ] as const;
 
 type KpiId = (typeof KPI_CFG)[number]["id"];
@@ -439,7 +439,7 @@ interface KPICardProps {
 
 const KPICard: React.FC<KPICardProps> = ({ cfg, value, sub, trend, isDark, isActive, onClick }) => {
   const trendColor = trend >= 0 ? "#4ade80" : "#f87171";
-  const text = isDark ? "#e2e8f0" : "#1e293b";
+  const text  = isDark ? "#e2e8f0" : "#1e293b";
   const muted = isDark ? "#64748b" : "#94a3b8";
 
   return (
@@ -522,9 +522,9 @@ interface WorkflowExpandPanelProps {
 }
 
 const WorkflowExpandPanel: React.FC<WorkflowExpandPanelProps> = ({ type, stages, slaDomains, isDark }) => {
-  const text = isDark ? "#e2e8f0" : "#1e293b";
+  const text  = isDark ? "#e2e8f0" : "#1e293b";
   const muted = isDark ? "#64748b" : "#94a3b8";
-  const panelBg = isDark ? "rgba(255,255,255,0.02)" : "#f8fafc";
+  const panelBg   = isDark ? "rgba(255,255,255,0.02)" : "#f8fafc";
   const accentColor = type === "sla" ? "#8b5cf6" : type === "total" ? "#38bdf8" : "#fb923c";
 
   if (type === "sla") {
@@ -573,7 +573,7 @@ const WorkflowExpandPanel: React.FC<WorkflowExpandPanelProps> = ({ type, stages,
 
   const data = stages.map((s) => ({ name: s.stage, count: type === "total" ? s.totalCount : s.openCount }));
   const maxVal = Math.max(...data.map((d) => d.count), 1);
-  const total = data.reduce((a, b) => a + b.count, 0) || 1;
+  const total  = data.reduce((a, b) => a + b.count, 0) || 1;
 
   return (
     <Box sx={{ ...panelSx(isDark), mb: 1.5, "&::before": { display: "none" } }}>
@@ -598,10 +598,10 @@ const WorkflowExpandPanel: React.FC<WorkflowExpandPanelProps> = ({ type, stages,
       </Box>
       <Box sx={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(190px,1fr))", gap: 1.5 }}>
         {data.map((s) => {
-          const pct = Math.round((s.count / total) * 100);
-          const ratio = s.count / maxVal;
+          const pct      = Math.round((s.count / total) * 100);
+          const ratio    = s.count / maxVal;
           const barColor = ratio >= 0.75 ? "#ef4444" : ratio >= 0.5 ? "#f59e0b" : "#3b82f6";
-          const isMax = s.count === maxVal;
+          const isMax    = s.count === maxVal;
           return (
             <Box key={s.name} sx={{ background: panelBg, borderRadius: 2, p: 1.5, position: "relative", border: `1px solid ${isMax ? `${barColor}44` : isDark ? "rgba(99,130,180,0.12)" : "#e2e8f0"}`, transition: "transform 0.15s ease", "&:hover": { transform: "translateY(-1px)" } }}>
               {isMax && <Box sx={{ position: "absolute", top: 6, right: 6, fontSize: 8, color: "#ef4444", bgcolor: "rgba(239,68,68,0.12)", borderRadius: 0.5, px: 0.6, py: 0.1, fontWeight: 700, letterSpacing: "0.05em" }}>MAX</Box>}
@@ -666,9 +666,9 @@ const ChartCard: React.FC<ChartCardProps> = ({ title, isDark, height = 185, isLo
 
 // ─── Chart Popup Table ────────────────────────────────────────────────────────
 const STATUS_COLORS: Record<string, { bg: string; text: string }> = {
-  Completed: { bg: "rgba(74,222,128,0.15)", text: "#4ade80" },
-  Open: { bg: "rgba(56,189,248,0.15)", text: "#38bdf8" },
-  Rejected: { bg: "rgba(248,113,113,0.15)", text: "#f87171" },
+  Completed: { bg: "rgba(74,222,128,0.15)",  text: "#4ade80" },
+  Open:      { bg: "rgba(56,189,248,0.15)",  text: "#38bdf8" },
+  Rejected:  { bg: "rgba(248,113,113,0.15)", text: "#f87171" },
 };
 
 interface ChartPopupTableProps {
@@ -680,7 +680,7 @@ interface ChartPopupTableProps {
 
 const ChartPopupTable: React.FC<ChartPopupTableProps> = ({ open, onClose, chartType, isDark }) => {
   if (!chartType) return null;
-  const cfg = CHART_POPUP_CONFIGS[chartType];
+  const cfg  = CHART_POPUP_CONFIGS[chartType];
   const rows = MOCK_TABLE_ROWS;
 
   const headerCellSx: SxProps<Theme> = {
@@ -824,9 +824,9 @@ const CustomTooltip = ({
 const getHeatmapColor = (value: number, max: number): string => {
   const ratio = value / max;
   if (ratio >= 0.85) return "#dc2626"; // deep red
-  if (ratio >= 0.7) return "#ef4444"; // red
+  if (ratio >= 0.7)  return "#ef4444"; // red
   if (ratio >= 0.55) return "#f97316"; // orange
-  if (ratio >= 0.4) return "#f59e0b"; // amber
+  if (ratio >= 0.4)  return "#f59e0b"; // amber
   if (ratio >= 0.25) return "#eab308"; // yellow
   if (ratio >= 0.12) return "#84cc16"; // lime
   return "#22c55e";                    // green
@@ -839,7 +839,7 @@ interface AgingHeatmapProps {
 }
 
 const CRQAgingHeatmap: React.FC<AgingHeatmapProps> = ({ isDark, onViewAll }) => {
-  const text = isDark ? "#e2e8f0" : "#1e293b";
+  const text  = isDark ? "#e2e8f0" : "#1e293b";
   const muted = isDark ? "#64748b" : "#94a3b8";
   const maxVal = Math.max(...AGING_HEATMAP_DATA.flatMap(d => [d.ccb, d.se]));
   const highRisk = AGING_HEATMAP_DATA.find(d => d.bucket === ">8 Days");
@@ -935,7 +935,7 @@ const CRQAgingHeatmap: React.FC<AgingHeatmapProps> = ({ isDark, onViewAll }) => 
 };
 
 // ─── Filter types ─────────────────────────────────────────────────────────────
-type FilterKey = "function" | "domain" | "subDomain" | "circle";
+type FilterKey   = "function" | "domain" | "subDomain" | "circle";
 type FilterState = Record<FilterKey, string>;
 
 // ─── Site Group time filter ───────────────────────────────────────────────────
@@ -943,16 +943,16 @@ type SiteGroupFilter = "24h" | "1w" | "30d" | "custom";
 
 // ─── Main Dashboard ───────────────────────────────────────────────────────────
 const CRQAnalyticsMain: React.FC = () => {
-  const theme = useTheme();
+  const theme  = useTheme();
   const isDark = theme.palette.mode === "dark";
 
   const [startDate, setStartDate] = useState<Dayjs>(() => dayjs().startOf("month"));
-  const [endDate, setEndDate] = useState<Dayjs>(() => dayjs().endOf("month"));
+  const [endDate,   setEndDate]   = useState<Dayjs>(() => dayjs().endOf("month"));
   const [filters, setFilters] = useState<FilterState>({
     function: "All Functions",
-    domain: "All Domains",
-    subDomain: "All Sub-Domains",
-    circle: "All Circles",
+    domain:   "All Domains",
+    subDomain:"All Sub-Domains",
+    circle:   "All Circles",
   });
 
   const [popupChart, setPopupChart] = useState<ChartPopupType | null>(null);
@@ -965,7 +965,7 @@ const CRQAnalyticsMain: React.FC = () => {
   // Site Group filter state
   const [siteGroupFilter, setSiteGroupFilter] = useState<SiteGroupFilter>("24h");
   const [sgCustomStart, setSgCustomStart] = useState<Dayjs>(() => dayjs().subtract(7, "day"));
-  const [sgCustomEnd, setSgCustomEnd] = useState<Dayjs>(() => dayjs());
+  const [sgCustomEnd,   setSgCustomEnd]   = useState<Dayjs>(() => dayjs());
 
   const domainOptions = useMemo(() => {
     if (filters.function === "All Functions") return ["All Domains"];
@@ -1002,29 +1002,31 @@ const CRQAnalyticsMain: React.FC = () => {
 
   const { data, isFetching, isError } = useGetCRQAnalyticsDashboardQuery({
     startDate: startDate.format("YYYY-MM-DD"),
-    endDate: endDate.format("YYYY-MM-DD"),
+    endDate:   endDate.format("YYYY-MM-DD"),
   });
 
-  const workflowStages = useMemo<CRQWorkflowStage[]>(() => data?.workflowStages ?? MOCK_STAGES, [data]);
-  const slaDomains = useMemo<CRQSlaDomain[]>(() => data?.slaDomains ?? MOCK_SLA_DOMAINS, [data]);
-  const raisedVsClosed = useMemo<CRQRaisedVsClosed[]>(() => data?.raisedVsClosed ?? MOCK_RAISED, [data]);
-  const bottlenecks = useMemo<CRQBottleneck[]>(() => data?.bottlenecks ?? MOCK_BOTTLENECK, [data]);
-  const domainSlaChart = useMemo<CRQDomainSlaChart[]>(() => data?.domainSlaChart ?? MOCK_DOMAIN_SLA, [data]);
+  const workflowStages = useMemo<CRQWorkflowStage[]>  (() => data?.workflowStages  ?? MOCK_STAGES,         [data]);
+  const slaDomains     = useMemo<CRQSlaDomain[]>      (() => data?.slaDomains      ?? MOCK_SLA_DOMAINS,    [data]);
+  const raisedVsClosed = useMemo<CRQRaisedVsClosed[]> (() => data?.raisedVsClosed  ?? MOCK_RAISED,         [data]);
+  const bottlenecks    = useMemo<CRQBottleneck[]>     (() => data?.bottlenecks     ?? MOCK_BOTTLENECK,     [data]);
+  const domainSlaChart = useMemo<CRQDomainSlaChart[]> (() => data?.domainSlaChart  ?? MOCK_DOMAIN_SLA,     [data]);
   // radarCoverage kept in state but chart is commented out below
-  const radarCoverage = useMemo<CRQRadarCoverage[]>(() => data?.radarCoverage ?? MOCK_RADAR_COVERAGE, [data]);
-  const domainCrqCount = useMemo<CRQDomainCount[]>(() => data?.domainCrqCount ?? MOCK_DOMAIN_CRQ, [data]);
-  const runRate = useMemo<CRQRunRate[]>(() => data?.runRate ?? MOCK_RUN_RATE, [data]);
+  const radarCoverage  = useMemo<CRQRadarCoverage[]>  (() => data?.radarCoverage   ?? MOCK_RADAR_COVERAGE, [data]);
+  const domainCrqCount = useMemo<CRQDomainCount[]>    (() => data?.domainCrqCount  ?? MOCK_DOMAIN_CRQ,     [data]);
+  const runRate        = useMemo<CRQRunRate[]>         (() => data?.runRate         ?? MOCK_RUN_RATE,       [data]);
 
+   const CARD_HEIGHT = 300;
+   
   const kpiValues = useMemo(() => ({
-    total: { value: data?.kpi?.totalCrq ?? 120, sub: "All requests", trend: data?.kpi?.totalTrendPct ?? 8 },
-    open: { value: data?.kpi?.openCrq ?? 48, sub: "In progress", trend: data?.kpi?.openTrendPct ?? -3 },
-    closed: { value: data?.kpi?.closedCrq ?? 62, sub: "Completed", trend: data?.kpi?.closedTrendPct ?? 12 },
-    rejected: { value: data?.kpi?.rejected ?? 10, sub: "Declined", trend: data?.kpi?.rejectedTrendPct ?? -2 },
-    sla: { value: `${data?.kpi?.slaScore ?? 87}%`, sub: "On-time rate", trend: data?.kpi?.slaTrendPct ?? 1.2 },
+    total:    { value: data?.kpi?.totalCrq    ?? 120,    sub: "All requests",  trend: data?.kpi?.totalTrendPct    ?? 8   },
+    open:     { value: data?.kpi?.openCrq     ?? 48,     sub: "In progress",   trend: data?.kpi?.openTrendPct     ?? -3  },
+    closed:   { value: data?.kpi?.closedCrq   ?? 62,     sub: "Completed",     trend: data?.kpi?.closedTrendPct   ?? 12  },
+    rejected: { value: data?.kpi?.rejected    ?? 10,     sub: "Declined",      trend: data?.kpi?.rejectedTrendPct ?? -2  },
+    sla:      { value: `${data?.kpi?.slaScore ?? 87}%`,  sub: "On-time rate",  trend: data?.kpi?.slaTrendPct      ?? 1.2 },
   }), [data]);
 
-  const gridColor = isDark ? "rgba(99,130,180,0.08)" : "#f1f5f9";
-  const tickColor = isDark ? "#475569" : "#94a3b8";
+  const gridColor    = isDark ? "rgba(99,130,180,0.08)" : "#f1f5f9";
+  const tickColor    = isDark ? "#475569" : "#94a3b8";
   const tooltipStyle = {
     background: isDark ? "#0d1b2e" : "#fff",
     border: `1px solid ${isDark ? "#1e3a5f" : "#e2e8f0"}`,
@@ -1033,7 +1035,7 @@ const CRQAnalyticsMain: React.FC = () => {
     boxShadow: "0 4px 16px rgba(0,0,0,0.25)",
     padding: "8px 12px",
   };
-  const text = isDark ? "#e2e8f0" : "#1e293b";
+  const text  = isDark ? "#e2e8f0" : "#1e293b";
   const muted = isDark ? "#64748b" : "#94a3b8";
 
   // Pie chart data for top 4 rejection reasons
@@ -1066,10 +1068,10 @@ const CRQAnalyticsMain: React.FC = () => {
           }}
         >
           <DatePicker label="Start Date" value={startDate} maxDate={endDate} onChange={(v) => v && setStartDate(v)} slotProps={{ textField: { size: "small", sx: { minWidth: 148, "& .MuiInputBase-root": { height: 32, fontSize: 12 } } } }} />
-          <DatePicker label="End Date" value={endDate} minDate={startDate} onChange={(v) => v && setEndDate(v)} slotProps={{ textField: { size: "small", sx: { minWidth: 148, "& .MuiInputBase-root": { height: 32, fontSize: 12 } } } }} />
+          <DatePicker label="End Date"   value={endDate}   minDate={startDate} onChange={(v) => v && setEndDate(v)}   slotProps={{ textField: { size: "small", sx: { minWidth: 148, "& .MuiInputBase-root": { height: 32, fontSize: 12 } } } }} />
           <Divider orientation="vertical" flexItem sx={{ my: 0.5, mx: 0 }} />
           <Select value={filters.function} onChange={(e) => handleFunctionChange(e.target.value)} sx={{ ...selectSx(isDark), minWidth: 132 }}>
-            {["All Functions", "SE", "CCB"].map((o) => <MenuItem key={o} value={o}>{o}</MenuItem>)}
+            {["All Functions","SE","CCB"].map((o) => <MenuItem key={o} value={o}>{o}</MenuItem>)}
           </Select>
           <Select value={filters.domain} onChange={(e) => handleDomainChange(e.target.value)} sx={{ ...selectSx(isDark), minWidth: 132 }}>
             {domainOptions.map((o) => <MenuItem key={o} value={o}>{o}</MenuItem>)}
@@ -1253,6 +1255,8 @@ const CRQAnalyticsMain: React.FC = () => {
           </ChartCard>
         </Box>
 
+       
+
         {/* ── Row 2: Open CRQ Domain Wise Analysis + Run Rate ────────────── */}
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr 1fr" }, gap: 1.5, mb: 1.5 }}>
 
@@ -1346,7 +1350,7 @@ const CRQAnalyticsMain: React.FC = () => {
                   <YAxis tick={{ fontSize: 11, fill: tickColor }} axisLine={false} tickLine={false} />
                   <RTooltip contentStyle={tooltipStyle} />
                   <Bar dataKey="ccb" name="CCB" stackId="a" fill="#6366f1" radius={[0, 0, 0, 0]} maxBarSize={32} />
-                  <Bar dataKey="se" name="SE" stackId="a" fill="#94a3b8" radius={[4, 4, 0, 0]} maxBarSize={32} />
+                  <Bar dataKey="se"  name="SE"  stackId="a" fill="#94a3b8" radius={[4, 4, 0, 0]} maxBarSize={32} />
                 </BarChart>
               </ResponsiveContainer>
             </Box>
@@ -1359,8 +1363,8 @@ const CRQAnalyticsMain: React.FC = () => {
               <ComposedChart data={runRate} margin={{ top: 8, right: 12, bottom: 0, left: -20 }}>
                 <defs>
                   <linearGradient id="grCCB" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.85} />
-                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0.5} />
+                    <stop offset="5%"  stopColor="#3b82f6" stopOpacity={0.85} />
+                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0.5}  />
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
@@ -1409,116 +1413,116 @@ const CRQAnalyticsMain: React.FC = () => {
             </ResponsiveContainer>
           </ChartCard>
 
-          {/* ── Site Group Wise CRQ Analytics (new chart) ─────────────────── */}
-          <Box sx={{ ...panelSx(isDark), height: "100%" }}>
-            {/* Header + filters */}
-            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 1, mb: 1.5 }}>
-              <Typography sx={{ ...sectionTitleSx(isDark) }}>SITE GROUP WISE CRQ ANALYTICS</Typography>
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1, flexWrap: "wrap" }}>
-                {/* Quick filter buttons */}
-                <Box sx={{ display: "flex", gap: 0.5 }}>
-                  {(["24h", "1w", "30d", "custom"] as SiteGroupFilter[]).map((f) => (
-                    <Box
-                      key={f}
-                      component="button"
-                      onClick={() => setSiteGroupFilter(f)}
-                      sx={{
-                        background: siteGroupFilter === f
-                          ? (isDark ? "rgba(56,189,248,0.18)" : "rgba(99,102,241,0.12)")
-                          : "none",
-                        border: `1px solid ${siteGroupFilter === f
-                          ? (isDark ? "rgba(56,189,248,0.5)" : "rgba(99,102,241,0.5)")
-                          : (isDark ? "rgba(99,130,180,0.3)" : "rgba(203,213,225,0.9)")}`,
-                        borderRadius: 1,
-                        cursor: "pointer",
-                        color: siteGroupFilter === f ? (isDark ? "#38bdf8" : "#6366f1") : muted,
-                        fontSize: "0.65rem",
-                        fontWeight: 700,
-                        letterSpacing: "0.06em",
-                        px: 1,
-                        py: 0.4,
-                        transition: "all 0.18s",
-                      }}
-                    >
-                      {f === "24h" ? "Last 24h" : f === "1w" ? "1 Week" : f === "30d" ? "30 Days" : "Custom"}
-                    </Box>
-                  ))}
-                </Box>
-                {/* Custom date pickers — show only when custom is selected */}
-                {siteGroupFilter === "custom" && (
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <DatePicker
-                      label="From"
-                      value={sgCustomStart}
-                      maxDate={sgCustomEnd}
-                      onChange={(v) => v && setSgCustomStart(v)}
-                      slotProps={{ textField: { size: "small", sx: { minWidth: 130, "& .MuiInputBase-root": { height: 28, fontSize: 11 } } } }}
-                    />
-                    <DatePicker
-                      label="To"
-                      value={sgCustomEnd}
-                      minDate={sgCustomStart}
-                      onChange={(v) => v && setSgCustomEnd(v)}
-                      slotProps={{ textField: { size: "small", sx: { minWidth: 130, "& .MuiInputBase-root": { height: 28, fontSize: 11 } } } }}
-                    />
+        {/* ── Site Group Wise CRQ Analytics (new chart) ─────────────────── */}
+        <Box sx={{ ...panelSx(isDark), height: 295 }}>
+          {/* Header + filters */}
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 1, mb: 1.5 }}>
+            <Typography sx={{ ...sectionTitleSx(isDark) }}>SITE GROUP WISE CRQ ANALYTICS</Typography>
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1, flexWrap: "wrap" }}>
+              {/* Quick filter buttons */}
+              <Box sx={{ display: "flex", gap: 0.5 }}>
+                {(["24h", "1w", "30d", "custom"] as SiteGroupFilter[]).map((f) => (
+                  <Box
+                    key={f}
+                    component="button"
+                    onClick={() => setSiteGroupFilter(f)}
+                    sx={{
+                      background: siteGroupFilter === f
+                        ? (isDark ? "rgba(56,189,248,0.18)" : "rgba(99,102,241,0.12)")
+                        : "none",
+                      border: `1px solid ${siteGroupFilter === f
+                        ? (isDark ? "rgba(56,189,248,0.5)" : "rgba(99,102,241,0.5)")
+                        : (isDark ? "rgba(99,130,180,0.3)" : "rgba(203,213,225,0.9)")}`,
+                      borderRadius: 1,
+                      cursor: "pointer",
+                      color: siteGroupFilter === f ? (isDark ? "#38bdf8" : "#6366f1") : muted,
+                      fontSize: "0.65rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.06em",
+                      px: 1,
+                      py: 0.4,
+                      transition: "all 0.18s",
+                    }}
+                  >
+                    {f === "24h" ? "Last 24h" : f === "1w" ? "1 Week" : f === "30d" ? "30 Days" : "Custom"}
                   </Box>
-                )}
-                <Box
-                  component="button"
-                  onClick={() => openPopup("sitegroup")}
-                  sx={{
-                    background: "none",
-                    border: `1px solid ${isDark ? "rgba(56,189,248,0.35)" : "rgba(99,102,241,0.35)"}`,
-                    borderRadius: 1,
-                    cursor: "pointer",
-                    color: isDark ? "#38bdf8" : "#6366f1",
-                    fontSize: "0.6rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.08em",
-                    px: 0.8,
-                    py: 0.3,
-                    textTransform: "uppercase",
-                    transition: "all 0.18s",
-                    "&:hover": { bgcolor: isDark ? "rgba(56,189,248,0.12)" : "rgba(99,102,241,0.08)" },
-                  }}
-                >
-                  View All
+                ))}
+              </Box>
+              {/* Custom date pickers — show only when custom is selected */}
+              {siteGroupFilter === "custom" && (
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <DatePicker
+                    label="From"
+                    value={sgCustomStart}
+                    maxDate={sgCustomEnd}
+                    onChange={(v) => v && setSgCustomStart(v)}
+                    slotProps={{ textField: { size: "small", sx: { minWidth: 130, "& .MuiInputBase-root": { height: 28, fontSize: 11 } } } }}
+                  />
+                  <DatePicker
+                    label="To"
+                    value={sgCustomEnd}
+                    minDate={sgCustomStart}
+                    onChange={(v) => v && setSgCustomEnd(v)}
+                    slotProps={{ textField: { size: "small", sx: { minWidth: 130, "& .MuiInputBase-root": { height: 28, fontSize: 11 } } } }}
+                  />
                 </Box>
+              )}
+              <Box
+                component="button"
+                onClick={() => openPopup("sitegroup")}
+                sx={{
+                  background: "none",
+                  border: `1px solid ${isDark ? "rgba(56,189,248,0.35)" : "rgba(99,102,241,0.35)"}`,
+                  borderRadius: 1,
+                  cursor: "pointer",
+                  color: isDark ? "#38bdf8" : "#6366f1",
+                  fontSize: "0.6rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.08em",
+                  px: 0.8,
+                  py: 0.3,
+                  textTransform: "uppercase",
+                  transition: "all 0.18s",
+                  "&:hover": { bgcolor: isDark ? "rgba(56,189,248,0.12)" : "rgba(99,102,241,0.08)" },
+                }}
+              >
+                View All
               </Box>
             </Box>
-
-            {/* Legend */}
-            <Box sx={{ display: "flex", gap: 2, mb: 1 }}>
-              {[
-                { color: "#4ade80", label: `CRQ_Raised  Total: ${SITE_GROUP_DATA.reduce((a, b) => a + b.raised, 0).toLocaleString()}` },
-                { color: "#fbbf24", label: `CRQRejected  Total: ${SITE_GROUP_DATA.reduce((a, b) => a + b.rejected, 0).toLocaleString()}` },
-                { color: "#60a5fa", label: `CRQClosed  Total: ${SITE_GROUP_DATA.reduce((a, b) => a + b.closed, 0).toLocaleString()}` },
-              ].map(({ color, label }) => (
-                <Box key={label} sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-                  <Box sx={{ width: 10, height: 10, borderRadius: 0.5, bgcolor: color }} />
-                  <Typography sx={{ fontSize: 10, color: muted }}>{label}</Typography>
-                </Box>
-              ))}
-            </Box>
-
-            <Box sx={{ height: 260 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={SITE_GROUP_DATA} margin={{ top: 4, right: 8, bottom: 16, left: -16 }} barCategoryGap="20%">
-                  <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
-                  <XAxis dataKey="group" tick={{ fontSize: 9, fill: tickColor }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fontSize: 9, fill: tickColor }} axisLine={false} tickLine={false} />
-                  <RTooltip contentStyle={tooltipStyle} />
-                  <Bar dataKey="raised" name="CRQ Raised" fill="#4ade80" radius={[3, 3, 0, 0]} maxBarSize={14} />
-                  <Bar dataKey="rejected" name="CRQ Rejected" fill="#fbbf24" radius={[3, 3, 0, 0]} maxBarSize={14} />
-                  <Bar dataKey="closed" name="CRQ Closed" fill="#60a5fa" radius={[3, 3, 0, 0]} maxBarSize={14} />
-                </BarChart>
-              </ResponsiveContainer>
-            </Box>
           </Box>
+
+          {/* Legend */}
+          <Box sx={{ display: "flex", gap: 2, mb: 1 }}>
+            {[
+              { color: "#4ade80", label: `CRQ_Raised  Total: ${SITE_GROUP_DATA.reduce((a,b) => a + b.raised, 0).toLocaleString()}` },
+              { color: "#fbbf24", label: `CRQRejected  Total: ${SITE_GROUP_DATA.reduce((a,b) => a + b.rejected, 0).toLocaleString()}` },
+              { color: "#60a5fa", label: `CRQClosed  Total: ${SITE_GROUP_DATA.reduce((a,b) => a + b.closed, 0).toLocaleString()}` },
+            ].map(({ color, label }) => (
+              <Box key={label} sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+                <Box sx={{ width: 10, height: 10, borderRadius: 0.5, bgcolor: color }} />
+                <Typography sx={{ fontSize: 10, color: muted }}>{label}</Typography>
+              </Box>
+            ))}
+          </Box>
+
+          <Box sx={{ height: 260 }}>
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={SITE_GROUP_DATA} margin={{ top: 4, right: 8, bottom: 16, left: -16 }} barCategoryGap="20%">
+                <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
+                <XAxis dataKey="group" tick={{ fontSize: 9, fill: tickColor }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fontSize: 9, fill: tickColor }} axisLine={false} tickLine={false} />
+                <RTooltip contentStyle={tooltipStyle} />
+                <Bar dataKey="raised"   name="CRQ Raised"   fill="#4ade80" radius={[3, 3, 0, 0]} maxBarSize={14} />
+                <Bar dataKey="rejected" name="CRQ Rejected" fill="#fbbf24" radius={[3, 3, 0, 0]} maxBarSize={14} />
+                <Bar dataKey="closed"   name="CRQ Closed"   fill="#60a5fa" radius={[3, 3, 0, 0]} maxBarSize={14} />
+              </BarChart>
+            </ResponsiveContainer>
+          </Box>
+        </Box>
         </Box>
 
 
-
+        
 
         {/* ── Row 3 (below Run Rate): Rejection Reasons Bar + Pie side-by-side ── */}
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 1.5, mb: 1.5 }}>
@@ -1715,9 +1719,9 @@ const FUNC_HIERARCHY: Record<string, Record<string, string[]>> = {
 };
 
 const CIRCLE_OPTIONS = [
-  "All Circles", "Maharashtra", "Gujarat", "Kerala", "Tamil Nadu", "Karnataka",
-  "Delhi", "Punjab", "Rajasthan", "UP East", "UP West", "Bihar", "Odisha",
-  "West Bengal", "Andhra Pradesh", "Haryana",
+  "All Circles","Maharashtra","Gujarat","Kerala","Tamil Nadu","Karnataka",
+  "Delhi","Punjab","Rajasthan","UP East","UP West","Bihar","Odisha",
+  "West Bengal","Andhra Pradesh","Haryana",
 ];
 
 
